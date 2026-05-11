@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FAQ — RuckTrack</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<p class="back"><a href="index.html">&larr; RuckTrack</a></p>
+
+<h1>Frequently Asked Questions</h1>
+<p class="updated">Last updated: 2026-05-11</p>
+
+<div class="toc">
+<ol>
+  <li><a href="#what-is-rucking">What is rucking?</a></li>
+  <li><a href="#devices">Which Garmin watches does RuckTrack work on?</a></li>
+  <li><a href="#calories">How are calories calculated?</a></li>
+  <li><a href="#connect-stats">Why are my RuckTrack calories different from the headline number in Garmin Connect?</a></li>
+  <li><a href="#treadmill">Can I use RuckTrack indoors or on a treadmill?</a></li>
+  <li><a href="#data">Does RuckTrack collect any data?</a></li>
+  <li><a href="#mid-activity">How do I change pack weight mid-activity?</a></li>
+  <li><a href="#auto-lap">What is Auto Lap?</a></li>
+  <li><a href="#dashes">Why does a metric show "--" early in an activity?</a></li>
+  <li><a href="#refund">How do I request a refund?</a></li>
+</ol>
+</div>
+
+<h2 id="what-is-rucking">1. What is rucking?</h2>
+<p>Rucking is walking with a weighted pack. The load adds resistance to an otherwise low-impact activity, increasing calorie burn and engaging your posterior chain and core. It started as a military fitness staple and has become mainstream in hiking, strength training, and endurance circles.</p>
+
+<h2 id="devices">2. Which Garmin watches does RuckTrack work on?</h2>
+<p>RuckTrack runs on 53 AMOLED Garmin devices, including Forerunner (965 / 970 / 265 / 165 / 570), f&#x113;nix 8 / E, Venu (2 / 3 / 4), epix Pro, Instinct 3 AMOLED, D2 Mach / Air, Descent MK3 / G2, Approach S50 / S70, MARQ 2, and v&iacute;voactive 5 / 6. The full compatibility list is on the <a href="https://apps.garmin.com/apps/201e9e43-f33c-4b56-b3f5-8a67184e3d1c">Connect IQ Store listing</a>.</p>
+
+<h2 id="calories">3. How are calories calculated?</h2>
+<p>RuckTrack uses the Pandolf equation, a published military physiology model that estimates metabolic cost from body weight, pack weight, walking speed, grade, and terrain (Road, Gravel, Trail, Sand). When you slow below walking pace, RuckTrack falls back to your watch's native heart-rate-based estimate so calories don't stall on breaks or steep descents. The total shown is a hybrid of both.</p>
+
+<h2 id="connect-stats">4. Why are my RuckTrack calories different from the headline number in Garmin Connect?</h2>
+<p>Two different calculations, two different questions:</p>
+<ul>
+  <li>The big calorie number at the top of an activity in Garmin Connect is Garmin's own heart-rate-based estimate. It doesn't know you were carrying a load.</li>
+  <li>RuckTrack's load-aware numbers live under the activity's <strong>Stats &rarr; Connect IQ</strong> section. You'll see fields like Ruck Calories (your total), Calories Without Pack (the counterfactual), and Pack Calorie Bonus (the difference), along with terrain and burn rate.</li>
+</ul>
+<p>Both numbers are correct for what they measure. The headline answers "how hard did your body work?" The Connect IQ section answers "how much of that came from the pack?"</p>
+
+<h2 id="treadmill">5. Can I use RuckTrack indoors or on a treadmill?</h2>
+<p>Yes. There are two indoor modes, selectable from the Settings menu before you start a session:</p>
+<ul>
+  <li><strong>Auto.</strong> Uses your watch's heart rate to estimate calories, scaled up by the pack weight you've set. No ongoing input required. Good for varied-incline workouts and instructor-led classes.</li>
+  <li><strong>Manual.</strong> Runs the full Pandolf calculation using an incline and belt speed you enter. Good for steady-state treadmill walks where you can read the belt speed off the machine.</li>
+</ul>
+<p>In both indoor modes, GPS is disabled and the Effort page (vertical speed, elevation gain) is hidden because they aren't meaningful indoors.</p>
+
+<h2 id="data">6. Does RuckTrack collect any data?</h2>
+<p>No. Every setting, preset, and history entry stays on your watch. Meridian operates no servers, runs no analytics, has no companion phone app, and uses no third-party SDKs. Full details on the <a href="privacy.html">Privacy page</a>.</p>
+
+<h2 id="mid-activity">7. How do I change pack weight mid-activity?</h2>
+<p>From the live screen, long-press <strong>UP</strong> to open the activity Settings menu without pausing. (On touch-only watches without a reliable long-press, hit the Action button to pause and pick <strong>Settings</strong> from the pause menu.) Tap <strong>Pack</strong>, set the new weight, and confirm. The change applies forward to the rest of the session. Past calorie integration is not retroactively recomputed.</p>
+
+<h2 id="auto-lap">8. What is Auto Lap?</h2>
+<p>Auto Lap fires a lap marker at every 1 mile (or 1 km, based on your distance unit) of covered distance. Each lap triggers a short vibration and shows a 3-second on-screen summary, then returns to the live screen. The lap page (page 4) shows current-lap pace, distance, and time. Toggle Auto Lap on or off in the activity Settings menu. If you record a manual lap (Back button), the next auto-lap marker advances by one full unit from that point, so you won't get a double-lap.</p>
+
+<h2 id="dashes">9. Why does a metric show "--" early in an activity?</h2>
+<p>RuckTrack shows "--" instead of zero whenever a value isn't trustworthy yet. Common cases:</p>
+<ul>
+  <li><strong>Pace</strong> shows "--" until your speed is above 0.2 m/s and a GPS fix is available.</li>
+  <li><strong>Vertical Speed</strong> shows "--" for the first ~30 seconds while a rolling average warms up, and whenever altitude data is missing or appears to spike.</li>
+  <li><strong>Calories</strong> show "--" for the first few seconds while the model gets a usable speed and heart rate reading.</li>
+</ul>
+<p>This is intentional. Rendering "0" would read as "the metric is broken" rather than "data is still warming up."</p>
+
+<h2 id="refund">10. How do I request a refund?</h2>
+<p>Garmin permits returns of paid Connect IQ apps (commonly reported as a 48-hour window). The mechanism is typically to uninstall the app from your watch shortly after purchase; Garmin then reverses the charge automatically. If you have trouble, contact <a href="https://support.garmin.com/">Garmin Support</a> through the Connect IQ Store. Meridian doesn't process payments and has no access to your purchase.</p>
+
+<p>Have a question that isn't here? <a href="support.html">Get in touch</a>.</p>
+
+<footer>
+&copy; 2026 Meridian.
+</footer>
+</body>
+</html>
