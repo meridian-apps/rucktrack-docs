@@ -4,7 +4,107 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>FAQ — RuckTrack</title>
+<meta name="description" content="Answers about RuckTrack for Garmin watches: how calories are computed, treadmill mode, mid-activity settings, pack-aware stats in Garmin Connect, and more.">
+<link rel="canonical" href="https://meridian-apps.github.io/rucktrack-docs/faq.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="FAQ — RuckTrack">
+<meta property="og:description" content="Answers about RuckTrack for Garmin watches: how calories are computed, treadmill mode, mid-activity settings, pack-aware stats in Garmin Connect, and more.">
+<meta property="og:url" content="https://meridian-apps.github.io/rucktrack-docs/faq.html">
+<meta property="og:image" content="https://meridian-apps.github.io/rucktrack-docs/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="FAQ — RuckTrack">
+<meta name="twitter:description" content="Answers about RuckTrack for Garmin watches: how calories are computed, treadmill mode, mid-activity settings, pack-aware stats in Garmin Connect, and more.">
+<meta name="twitter:image" content="https://meridian-apps.github.io/rucktrack-docs/og-image.png">
+<link rel="icon" type="image/png" href="icon.png">
 <link rel="stylesheet" href="style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is rucking?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Rucking is walking with a weighted pack. The load adds resistance to an otherwise low-impact activity, increasing calorie burn and engaging your posterior chain and core. It started as a military fitness staple and has become mainstream in hiking, strength training, and endurance circles."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which Garmin watches does RuckTrack work on?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "RuckTrack runs on 57 AMOLED Garmin devices, including Forerunner (70 / 165 / 170 / 265 / 570 / 965 / 970), fēnix 8 / E, Venu (2 / 3 / 4), epix Pro, Instinct 3 AMOLED, D2 Mach / Air, Descent MK3 / G2, Approach S50 / S70, MARQ 2, and vívoactive 5 / 6. The full compatibility list is on the Connect IQ Store listing."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How are calories calculated?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "RuckTrack uses the Pandolf equation, a published military physiology model that estimates metabolic cost from body weight, pack weight, walking speed, grade, and terrain (Road, Gravel, Trail, Sand). When you slow below walking pace, RuckTrack falls back to your watch's native heart-rate-based estimate so calories don't stall on breaks or steep descents. The total shown is a hybrid of both."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why are my RuckTrack calories different from the headline number in Garmin Connect?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Two different calculations, two different questions. The big calorie number at the top of an activity in Garmin Connect is Garmin's own heart-rate-based estimate; it doesn't know you were carrying a load. RuckTrack's load-aware numbers live under the activity's Stats → Connect IQ section. You'll see fields like Ruck Calories (your total), Calories Without Pack (the counterfactual), and Pack Calorie Bonus (the difference), along with terrain and burn rate. Both numbers are correct for what they measure. The headline answers how hard your body worked; the Connect IQ section answers how much of that came from the pack."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use RuckTrack indoors or on a treadmill?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. There are two indoor modes, selectable from the Settings menu before you start a session. Auto uses your watch's heart rate to estimate calories, scaled up by the pack weight you've set; no ongoing input required, good for varied-incline workouts and instructor-led classes. Manual runs the full Pandolf calculation using an incline and belt speed you enter; good for steady-state treadmill walks where you can read the belt speed off the machine. In both indoor modes, GPS is disabled and the Effort page (vertical speed, elevation gain) is hidden because they aren't meaningful indoors."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does RuckTrack collect any data?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Every setting, preset, and history entry stays on your watch. Meridian operates no servers, runs no analytics, has no companion phone app, and uses no third-party SDKs. Full details on the Privacy page."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I change pack weight mid-activity?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "From the live screen, long-press UP to open the activity Settings menu without pausing. (On touch-only watches without a reliable long-press, hit the Action button to pause and pick Settings from the pause menu.) Tap Pack, set the new weight, and confirm. The change applies forward to the rest of the session. Past calorie integration is not retroactively recomputed."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is Auto Lap?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Auto Lap fires a lap marker at every 1 mile (or 1 km, based on your distance unit) of covered distance. Each lap triggers a short vibration and shows a 3-second on-screen summary, then returns to the live screen. The lap page (page 4) shows current-lap pace, distance, and time. Toggle Auto Lap on or off in the activity Settings menu. If you record a manual lap (Back button), the next auto-lap marker advances by one full unit from that point, so you won't get a double-lap."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does a metric show -- early in an activity?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "RuckTrack shows -- instead of zero whenever a value isn't trustworthy yet. Pace shows -- until your speed is above 0.2 m/s and a GPS fix is available. Vertical Speed shows -- for the first ~30 seconds while a rolling average warms up, and whenever altitude data is missing or appears to spike. Calories show -- for the first few seconds while the model gets a usable speed and heart rate reading. This is intentional. Rendering 0 would read as the metric is broken rather than data is still warming up."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I request a refund?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Garmin permits returns of paid Connect IQ apps (commonly reported as a 48-hour window). The mechanism is typically to uninstall the app from your watch shortly after purchase; Garmin then reverses the charge automatically. If you have trouble, contact Garmin Support through the Connect IQ Store. Meridian doesn't process payments and has no access to your purchase."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <p class="back"><a href="index.html">&larr; RuckTrack</a></p>
@@ -31,7 +131,7 @@
 <p>Rucking is walking with a weighted pack. The load adds resistance to an otherwise low-impact activity, increasing calorie burn and engaging your posterior chain and core. It started as a military fitness staple and has become mainstream in hiking, strength training, and endurance circles.</p>
 
 <h2 id="devices">2. Which Garmin watches does RuckTrack work on?</h2>
-<p>RuckTrack runs on 53 AMOLED Garmin devices, including Forerunner (965 / 970 / 265 / 165 / 570), f&#x113;nix 8 / E, Venu (2 / 3 / 4), epix Pro, Instinct 3 AMOLED, D2 Mach / Air, Descent MK3 / G2, Approach S50 / S70, MARQ 2, and v&iacute;voactive 5 / 6. The full compatibility list is on the <a href="https://apps.garmin.com/apps/201e9e43-f33c-4b56-b3f5-8a67184e3d1c">Connect IQ Store listing</a>.</p>
+<p>RuckTrack runs on 57 AMOLED Garmin devices, including Forerunner (70 / 165 / 170 / 265 / 570 / 965 / 970), f&#x113;nix 8 / E, Venu (2 / 3 / 4), epix Pro, Instinct 3 AMOLED, D2 Mach / Air, Descent MK3 / G2, Approach S50 / S70, MARQ 2, and v&iacute;voactive 5 / 6. The full compatibility list is on the <a href="https://apps.garmin.com/apps/201e9e43-f33c-4b56-b3f5-8a67184e3d1c">Connect IQ Store listing</a>.</p>
 
 <h2 id="calories">3. How are calories calculated?</h2>
 <p>RuckTrack uses the Pandolf equation, a published military physiology model that estimates metabolic cost from body weight, pack weight, walking speed, grade, and terrain (Road, Gravel, Trail, Sand). When you slow below walking pace, RuckTrack falls back to your watch's native heart-rate-based estimate so calories don't stall on breaks or steep descents. The total shown is a hybrid of both.</p>
