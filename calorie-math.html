@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Calorie Math — RuckTrack</title>
+<meta name="description" content="How RuckTrack calculates calories: the Pandolf load-carriage equation, terrain coefficients, the Santee descent correction, and the HR-based hybrid fallback.">
+<link rel="canonical" href="https://meridian-apps.github.io/rucktrack-docs/calorie-math.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Calorie Math — RuckTrack">
+<meta property="og:description" content="How RuckTrack calculates calories: the Pandolf load-carriage equation, terrain coefficients, the Santee descent correction, and the HR-based hybrid fallback.">
+<meta property="og:url" content="https://meridian-apps.github.io/rucktrack-docs/calorie-math.html">
+<meta property="og:image" content="https://meridian-apps.github.io/rucktrack-docs/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Calorie Math — RuckTrack">
+<meta name="twitter:description" content="How RuckTrack calculates calories using the Pandolf load-carriage equation.">
+<meta name="twitter:image" content="https://meridian-apps.github.io/rucktrack-docs/og-image.png">
+<link rel="icon" type="image/png" href="icon.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="topnav">
+  <div class="topnav-inner">
+    <a class="topnav-brand" href="./"><img src="icon.png" alt=""> RuckTrack</a>
+    <div class="topnav-links">
+      <a href="features.html">Features</a>
+      <a href="calorie-math.html">Calorie Math</a>
+      <a href="devices.html">Devices</a>
+      <a href="faq.html">FAQ</a>
+      <a href="support.html">Support</a>
+      <a class="topnav-cta" href="https://apps.garmin.com/apps/201e9e43-f33c-4b56-b3f5-8a67184e3d1c">Get it · $2.99</a>
+    </div>
+  </div>
+</nav>
+
+<div class="wrap-narrow content-page">
+<div class="page-head">
+<p class="back"><a href="./">&larr; Home</a></p>
+<h1>Calorie math</h1>
+<p class="updated">For technical readers asking "what's the equation?"</p>
+</div>
+
+<p>RuckTrack's calorie number is load-aware because Garmin's built-in profiles aren't. This page covers exactly how the math works, what the inputs are, and where the published research comes from.</p>
+
+<div class="toc">
+<ol>
+  <li><a href="#why">Why a separate model</a></li>
+  <li><a href="#pandolf">The Pandolf equation</a></li>
+  <li><a href="#terrain">Terrain coefficients</a></li>
+  <li><a href="#descent">The Santee descent correction</a></li>
+  <li><a href="#hybrid">Hybrid fallback to heart rate</a></li>
+  <li><a href="#auto">Treadmill Auto mode</a></li>
+  <li><a href="#totals">What ends up on the watch and in Connect</a></li>
+</ol>
+</div>
+
+<h2 id="why">Why a separate model</h2>
+<p>Garmin's headline activity calorie is based on the Firstbeat heart-rate model: your HR response, body weight, age, and a VO2max estimate. It's a good general fitness number, but it doesn't take pack weight as an input. Published research on load carriage shows HR-only estimation under-credits a loaded carry by roughly 10 to 20 percent because heart-rate-derived metabolic models don't directly account for the mechanical work of moving extra mass.</p>
+<p>For rucking specifically, the U.S. Army Research Institute of Environmental Medicine spent decades validating a different approach: estimate metabolic cost from mechanical inputs (body weight, load, speed, grade, terrain) and read calories straight off the metabolic rate. That's the Pandolf equation.</p>
+
+<h2 id="pandolf">The Pandolf equation</h2>
+<p>The original 1977 form, as RuckTrack runs it:</p>
+<div class="formula">
+M = 1.5W + 2(W+L)(L/W)² + η(W+L)(1.5V² + 0.35VG)
+</div>
+<p>Where:</p>
+<ul>
+  <li><code>M</code> — metabolic rate in watts</li>
+  <li><code>W</code> — body weight in kg (from your Garmin user profile, or 70 kg if unset; marked <em>(est.)</em> in Calorie Details so you know)</li>
+  <li><code>L</code> — pack weight in kg</li>
+  <li><code>V</code> — walking speed in m/s (clamped at 2.5 m/s; the equation was validated for walking only)</li>
+  <li><code>G</code> — terrain grade in percent</li>
+  <li><code>η</code> — terrain coefficient (see next section)</li>
+</ul>
+<p>The three terms are intuitive once you read them: <code>1.5W</code> is the resting/maintenance term, <code>2(W+L)(L/W)²</code> is the load-carriage penalty (note the squared L/W ratio — heavier loads on lighter people cost disproportionately more), and <code>η(W+L)(1.5V² + 0.35VG)</code> is the velocity-and-grade work term.</p>
+<p>RuckTrack accumulates <code>M/4184</code> kcal per second while you're moving above 0.3 m/s. The 4184 conversion is the standard joules-per-kcal factor (1 kcal = 4184 J).</p>
+<p>An <strong>unloaded baseline</strong> runs in parallel — the same equation with L = 0. Subtracting unloaded calories from loaded calories gives you the <em>pack bonus</em> in kcal, which is what shows up on the Calories screen and in the FIT file as <code>pack_bonus_kcal</code>.</p>
+
+<h2 id="terrain">Terrain coefficients</h2>
+<p>The terrain coefficient η scales the velocity-and-grade work term by how much energy the surface costs you. Values from Pandolf's original research:</p>
+<ul>
+  <li><strong>Road</strong> — η = 1.00. Paved or hard-packed.</li>
+  <li><strong>Gravel</strong> — η = 1.05. Packed gravel paths and well-maintained fire roads.</li>
+  <li><strong>Trail</strong> — η = 1.20. Hiking trails, dirt, loose rock.</li>
+  <li><strong>Sand</strong> — η = 1.50. Soft sand, snow, deep mud.</li>
+</ul>
+<p>A 50 percent increase from Road to Sand for the same speed and load is a real number from the literature, not a rough estimate. Pick the terrain in Settings before you start, or change it mid-activity. The value at save time writes to the FIT file as the <code>terrain_factor</code> field.</p>
+
+<h2 id="descent">The Santee descent correction</h2>
+<p>Vanilla Pandolf underestimates metabolic cost on negative grades — the equation goes mathematically silly when G is large and negative, sometimes returning a metabolic rate below resting. Santee et al. (2001) showed empirically that descent still costs at least the resting/maintenance term.</p>
+<p>RuckTrack applies the Santee floor: on negative grades, M is floored at <code>1.5W</code>. Calories don't dip below maintenance just because you're walking downhill.</p>
+
+<h2 id="hybrid">Hybrid fallback to heart rate</h2>
+<p>The Pandolf equation needs speed and grade, both of which come from GPS. When GPS isn't usable — under tree cover, during the first minute of a session before lock, or when you stop on a hill for a break — Pandolf would either freeze or produce garbage.</p>
+<p>RuckTrack handles this by accumulating calories from Garmin's native HR-based estimate (<code>info.calories</code>) during any tick where Pandolf isn't reliable. Specifically:</p>
+<ul>
+  <li>Speed below 0.3 m/s (not moving) — native</li>
+  <li>Grade not yet available (first ~60 seconds while the 60-sample grade buffer fills) — native</li>
+  <li>GPS dropout or fix loss — native</li>
+</ul>
+<p>The total calorie number shown on the watch is a hybrid: Pandolf when Pandolf is valid, native HR fallback when it isn't. Both streams accumulate into the same running total, so the number never resets or drops when conditions change.</p>
+
+<h2 id="auto">Treadmill Auto mode</h2>
+<p>Indoor Auto mode is its own calorie path because you don't have GPS-derived speed or grade. The model:</p>
+<div class="formula">
+kcal = native × (1 + α × L/W)        <em>where α = 0.4</em>
+</div>
+<p>The watch's HR-based estimate gets scaled up by a multiplier that grows with the load-to-body-weight ratio. The α = 0.4 coefficient was tuned to land between published HR-only estimates (which we know undercount loaded work) and Pandolf at typical treadmill speeds. It's not as physically grounded as Pandolf, but it's the right shape for the use case: you set the pack weight, walk, and let the watch's HR sensor do the per-second tracking. Good for instructor-led classes where the machine's incline changes constantly.</p>
+<p>Indoor Manual mode runs the full Pandolf equation with user-set V (belt speed) and G (incline), no fallback. If you can read the belt speed off the machine, Manual gives you the same load-aware accuracy as outdoor.</p>
+
+<h2 id="totals">What ends up on the watch and in Connect</h2>
+<p>The watch's Calories screen shows the live total, the average burn rate (kcal/hr), and the pack bonus percent. Calorie Details (Action button on any summary page) shows every input: total burn, the unloaded counterfactual, pack bonus in kcal and percent, the watch's native HR estimate for comparison, body weight, pack weight, terrain, and the speed and grade ranges seen during the session.</p>
+<p>In Garmin Connect, the load-aware fields live under <strong>Stats → Connect IQ</strong>: Pack Weight, Ruck Calories, Calories Without Pack, Pack Calorie Bonus, Burn Rate, Terrain Surface, and (where applicable) Treadmill Mode and Incline. The headline calorie at the top of the activity stays as Garmin's native HR-only number, because Garmin doesn't let third-party apps write that field. The two numbers being different is the point — the headline answers "how hard did your body work?" while the Connect IQ section answers "how much of that came from the pack?"</p>
+<p>Per-second grade and metabolic rate also write to the FIT record stream as developer fields. Open any saved ruck on Garmin Connect and you'll see them charted as time series alongside the native pace, HR, and elevation graphs.</p>
+
+<h2>References</h2>
+<ul>
+  <li>Pandolf KB, Givoni B, Goldman RF. "Predicting energy expenditure with loads while standing or walking very slowly." <em>Journal of Applied Physiology</em>, 1977.</li>
+  <li>Santee WR, Allison WF, Blanchard LA, Small MG. "A proposed model for load carriage on sloped terrain." <em>Aviation, Space, and Environmental Medicine</em>, 2001.</li>
+</ul>
+
+<p class="back" style="margin-top: 2rem;"><a href="./">&larr; Home</a></p>
+
+</div>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-cols">
+      <div>
+        <h5>RuckTrack</h5>
+        <p>A Garmin Connect IQ activity app for rucking, weighted vests, loaded hikes, and treadmill walks. Built by Meridian Apps.</p>
+      </div>
+      <div>
+        <h5>Product</h5>
+        <ul>
+          <li><a href="features.html">Features</a></li>
+          <li><a href="calorie-math.html">Calorie Math</a></li>
+          <li><a href="devices.html">Supported devices</a></li>
+          <li><a href="https://apps.garmin.com/apps/201e9e43-f33c-4b56-b3f5-8a67184e3d1c">Connect IQ Store</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Help</h5>
+        <ul>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="support.html">Support &amp; contact</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+          <li><a href="mailto:garmin.lanam+rucktrack@gmail.com">Email Meridian</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 Meridian. RuckTrack is an independent app. Garmin and Connect IQ are trademarks of Garmin Ltd.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

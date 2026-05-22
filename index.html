@@ -3,17 +3,17 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>RuckTrack — by Meridian</title>
-<meta name="description" content="RuckTrack: a Garmin Connect IQ watch app for rucking. Load-aware calories via the Pandolf equation, distance, pace, elevation, HR zones, and FIT export.">
+<title>RuckTrack — The rucking app for Garmin AMOLED watches</title>
+<meta name="description" content="RuckTrack is a Garmin Connect IQ activity app for rucking, weighted vests, loaded hikes, and treadmill walks. Load-aware Pandolf calorie math, six AMOLED-optimized screens, FIT export.">
 <link rel="canonical" href="https://meridian-apps.github.io/rucktrack-docs/">
 <meta property="og:type" content="website">
-<meta property="og:title" content="RuckTrack — by Meridian">
-<meta property="og:description" content="A Garmin Connect IQ watch app for rucking. Load-aware calories via the Pandolf equation, distance, pace, elevation, HR zones, and FIT export.">
+<meta property="og:title" content="RuckTrack — The rucking app for Garmin AMOLED watches">
+<meta property="og:description" content="Load-aware calorie math, six AMOLED-optimized screens, treadmill mode, lifetime totals. $2.99 on the Connect IQ Store.">
 <meta property="og:url" content="https://meridian-apps.github.io/rucktrack-docs/">
 <meta property="og:image" content="https://meridian-apps.github.io/rucktrack-docs/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="RuckTrack — by Meridian">
-<meta name="twitter:description" content="A Garmin Connect IQ watch app for rucking. Load-aware calories via the Pandolf equation, distance, pace, elevation, HR zones, and FIT export.">
+<meta name="twitter:title" content="RuckTrack — The rucking app for Garmin AMOLED watches">
+<meta name="twitter:description" content="Load-aware calorie math, six AMOLED-optimized screens, treadmill mode, lifetime totals.">
 <meta name="twitter:image" content="https://meridian-apps.github.io/rucktrack-docs/og-image.png">
 <link rel="icon" type="image/png" href="icon.png">
 <link rel="stylesheet" href="style.css">
@@ -25,10 +25,11 @@
   "applicationCategory": "HealthApplication",
   "applicationSubCategory": "Fitness",
   "operatingSystem": "Garmin Connect IQ",
-  "description": "A Garmin Connect IQ watch app for rucking. Load-aware calories via the Pandolf equation, distance, pace, elevation, HR zones, and FIT export.",
+  "description": "A Garmin Connect IQ watch app for rucking. Load-aware calories via the Pandolf equation, six AMOLED-optimized screens, treadmill mode, FIT export, lifetime totals.",
   "url": "https://meridian-apps.github.io/rucktrack-docs/",
   "downloadUrl": "https://apps.garmin.com/apps/201e9e43-f33c-4b56-b3f5-8a67184e3d1c",
   "image": "https://meridian-apps.github.io/rucktrack-docs/og-image.png",
+  "softwareVersion": "2.1.0",
   "offers": {
     "@type": "Offer",
     "price": "2.99",
@@ -43,26 +44,226 @@
 </script>
 </head>
 <body>
-<h1>RuckTrack</h1>
-<p class="tag">A rucking activity app for Garmin watches.</p>
 
-<p>RuckTrack records rucking activities with load-aware calorie estimates using the Pandolf equation. Distance, pace, elevation, heart rate zones, lap data, and pack-bonus calories are tracked on-device and written to a standard Garmin FIT file.</p>
+<nav class="topnav">
+  <div class="topnav-inner">
+    <a class="topnav-brand" href="./"><img src="icon.png" alt=""> RuckTrack</a>
+    <div class="topnav-links">
+      <a href="features.html">Features</a>
+      <a href="calorie-math.html">Calorie Math</a>
+      <a href="devices.html">Devices</a>
+      <a href="faq.html">FAQ</a>
+      <a href="support.html">Support</a>
+      <a class="topnav-cta" href="https://apps.garmin.com/apps/201e9e43-f33c-4b56-b3f5-8a67184e3d1c">Get it · $2.99</a>
+    </div>
+  </div>
+</nav>
 
-<h2>Get the app</h2>
-<p><a href="https://apps.garmin.com/apps/201e9e43-f33c-4b56-b3f5-8a67184e3d1c">RuckTrack on the Garmin Connect IQ Store</a></p>
+<header class="hero">
+  <div class="hero-inner">
+    <div>
+      <p class="hero-tag">For Garmin AMOLED</p>
+      <h1>The rucking app your watch was missing.</h1>
+      <p class="hero-lede">Six AMOLED-optimized screens, calorie math that counts every pound in your pack, and a treadmill mode that works when GPS doesn't. Built for ruckers, hikers, backpackers, and vest walkers.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="https://apps.garmin.com/apps/201e9e43-f33c-4b56-b3f5-8a67184e3d1c">Get RuckTrack — $2.99</a>
+        <a class="btn btn-secondary" href="#screens">See the screens</a>
+      </div>
+      <p class="hero-price">One-time purchase. No ads, no account, no phone app, no subscription.</p>
+    </div>
+    <div class="hero-shot">
+      <img src="assets/screenshots/watch/01_live_primary.png" alt="RuckTrack live activity screen showing distance, time, calories, and a heart rate zone arc">
+    </div>
+  </div>
+</header>
 
-<h2>Documentation</h2>
-<ul>
-  <li><a href="faq.html">FAQ</a></li>
-  <li><a href="support.html">Support &amp; Contact</a></li>
-  <li><a href="privacy.html">Privacy</a></li>
-</ul>
+<section>
+  <div class="wrap">
+    <p class="eyebrow">Why RuckTrack</p>
+    <h2>Generic activity profiles ignore your pack. This one doesn't.</h2>
+    <p class="section-lede">Garmin's built-in Walk and Hike profiles don't know how much weight you're carrying, so they under-credit a 35-pound ruck by 10 to 20 percent. RuckTrack uses the Pandolf load-carriage equation, the model validated by U.S. Army research, to include your pack weight, terrain, and grade in every calorie.</p>
 
-<h2>Contact</h2>
-<p>Questions, bug reports, or feature requests: <a href="mailto:garmin.lanam+rucktrack@gmail.com">garmin.lanam+rucktrack@gmail.com</a>. See <a href="support.html">Support &amp; Contact</a> for what to include in a bug report.</p>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <h3>Load-aware calories</h3>
+        <p>Pandolf math on pack weight, speed, grade, and surface (Road, Gravel, Trail, Sand). When GPS is iffy or you stop on a hill, RuckTrack falls back to your watch's heart-rate estimate so calories never stall.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Six purpose-built screens</h3>
+        <p>Distance, calories with pack bonus, pace and vertical speed, lap data, HR zones, and a clock. High-contrast on AMOLED. Nothing that needs squinting.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Treadmill mode that knows your pack</h3>
+        <p>Two indoor modes. Auto scales your watch's HR-based estimate by pack weight. Manual takes incline and belt speed and runs full Pandolf math. Sessions save as Indoor Walk in Garmin Connect.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Saves as Rucking in Garmin Connect</h3>
+        <p>Outdoor sessions classify as Rucking (FIT subsport 124), not just another Hike. Connect names them descriptively too — "Ruck 35 lb" or "Treadmill Ruck 16 kg" — so your activity list reads at a glance.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Per-second graphs on Connect</h3>
+        <p>Open any saved ruck on Garmin Connect for grade and metabolic rate plotted second by second, right next to the native pace and heart-rate charts.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Local-only data</h3>
+        <p>Every setting, preset, and history entry stays on your watch. No companion phone app, no servers, no analytics, no third-party SDKs.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-<footer>
-&copy; 2026 Meridian.
+<section class="alt" id="screens">
+  <div class="wrap">
+    <p class="eyebrow">On the watch</p>
+    <h2>Six live screens. Something useful at every moment.</h2>
+    <p class="section-lede">Designed for the way you actually use a watch on a ruck: glance, get the number, look back at the trail.</p>
+
+    <div class="row">
+      <div class="row-text">
+        <h3>Primary — distance, time, calories</h3>
+        <p>Hero distance, current time and total calories side by side, and a live HR zone arc gauge along the bottom edge. The calorie number on this page is the same one that shows up on the calories page and writes to your FIT file as Ruck Calories. No drift between surfaces.</p>
+      </div>
+      <div class="row-shot">
+        <img src="assets/screenshots/watch/01_live_primary.png" alt="Primary screen: 2.41 miles, 30:14 time, 287 calories">
+      </div>
+    </div>
+
+    <div class="row reverse">
+      <div class="row-text">
+        <h3>Calories — see what the pack is doing</h3>
+        <p>Total calories as the hero. Below it, average burn rate (kcal/hr) and pack bonus (the percent of the session's burn that came from carrying weight). The bottom line shows the pack, terrain, and any reward kcal earned over an unloaded baseline.</p>
+      </div>
+      <div class="row-shot">
+        <img src="assets/screenshots/watch/03_live_calories.png" alt="Calories screen: 287 kcal hero, 570 avg burn, +18% pack bonus, 35 lb pack on Trail">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="row-text">
+        <h3>Effort — pace, elevation, vertical speed</h3>
+        <p>Current pace at the top, total elevation gain and vertical speed in the middle, and overall average pace at the bottom. Vertical speed shows green or red arrows based on whether you're climbing or descending.</p>
+      </div>
+      <div class="row-shot">
+        <img src="assets/screenshots/watch/11_live_effort.png" alt="Effort screen showing pace, elevation gain, and vertical speed">
+      </div>
+    </div>
+
+    <div class="row reverse">
+      <div class="row-text">
+        <h3>Lap, HR zones, and clock</h3>
+        <p>The remaining three pages give you lap data with pace, distance, and time; an HR zones gauge with a pulsating heart icon and circular zone arc; and a clock with battery indicator for when you just want to know how long is left.</p>
+      </div>
+      <div class="row-shot">
+        <img src="assets/screenshots/watch/13_live_hr_zones.png" alt="HR zones screen with circular zone gauge">
+      </div>
+    </div>
+
+    <p style="margin-top: 2rem;"><a href="features.html">See the full feature breakdown →</a></p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow">When you're done</p>
+    <h2>A post-save summary worth scrolling.</h2>
+    <p class="section-lede">Five or six pages, depending on the mode. Distance and pace; calories with pack bonus; elevation chart; HR zone breakdown; lifetime totals; and a final pointer to the deeper stats in Garmin Connect.</p>
+
+    <div class="shots">
+      <div class="shot">
+        <img src="assets/screenshots/watch/02_summary_overview.png" alt="Summary overview page with distance hero">
+        <p class="shot-caption">Overview — distance, pace, pack weight</p>
+      </div>
+      <div class="shot">
+        <img src="assets/screenshots/watch/04_summary_calories.png" alt="Summary calories page with pack bonus">
+        <p class="shot-caption">Calories — total burn + pack bonus</p>
+      </div>
+      <div class="shot">
+        <img src="assets/screenshots/watch/08_summary_elevation.png" alt="Summary elevation chart with ascent and descent">
+        <p class="shot-caption">Elevation — ascent and descent chart</p>
+      </div>
+      <div class="shot">
+        <img src="assets/screenshots/watch/06_summary_hr.png" alt="Summary HR page with zone histogram">
+        <p class="shot-caption">HR zones — histogram + time per zone</p>
+      </div>
+      <div class="shot">
+        <img src="assets/screenshots/watch/09_summary_lifetime_totals.png" alt="Lifetime totals page with ruck count">
+        <p class="shot-caption">Lifetime totals — every ruck so far</p>
+      </div>
+      <div class="shot">
+        <img src="assets/screenshots/watch/05_calorie_details.png" alt="Calorie details with Pandolf inputs">
+        <p class="shot-caption">Calorie details — all the numbers</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <p class="eyebrow">In Garmin Connect</p>
+    <h2>Pack-aware stats land where Garmin lets them.</h2>
+    <p class="section-lede">Garmin restricts third-party apps from writing the headline calorie field at the top of an activity, so your load-aware numbers live one section down. Open any saved ruck and look under <strong>Stats → Connect IQ</strong> for Ruck Calories, Calories Without Pack, Pack Calorie Bonus, Burn Rate, and Terrain Surface. Per-second grade and metabolic rate appear on the activity's chart panel.</p>
+
+    <div class="connect-row">
+      <figure>
+        <img src="assets/screenshots/connect/01_connect_stats.png" alt="Garmin Connect activity stats showing Ruck Calories, Calories Without Pack, Pack Calorie Bonus">
+        <figcaption>Stats → Connect IQ — the six load-aware fields</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/screenshots/connect/02_connect_charts.png" alt="Garmin Connect time-series charts for grade and metabolic rate">
+        <figcaption>Time-series charts for grade and metabolic rate</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow">Compatibility</p>
+    <h2>57 supported Garmin AMOLED watches.</h2>
+    <p class="section-lede">Including the Forerunner 165 / 265 / 570 / 965 / 970, fēnix 8 and 8E, Instinct 3 AMOLED, Venu 2 / 3 / 4, vívoactive 5 / 6, epix Pro, MARQ Gen 2, D2 Mach 1 and Air X15, Descent MK3 and G2, Approach S50 / S70, tactix 7/8 AMOLED, and quatix AMOLED.</p>
+    <p><a href="devices.html">Full device list →</a> <span style="color: var(--ink-mute); margin-left: 0.5rem;">or check the <a href="https://apps.garmin.com/apps/201e9e43-f33c-4b56-b3f5-8a67184e3d1c">Connect IQ Store listing</a> for the live compatibility list.</span></p>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="wrap-narrow">
+    <h2>One-time $2.99. No subscription, no account.</h2>
+    <p>Install once. Every saved ruck lands in Garmin Connect with the activity classification and load-aware stats your watch couldn't give you before.</p>
+    <a class="btn btn-primary" href="https://apps.garmin.com/apps/201e9e43-f33c-4b56-b3f5-8a67184e3d1c">Get RuckTrack on the Connect IQ Store</a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-cols">
+      <div>
+        <h5>RuckTrack</h5>
+        <p>A Garmin Connect IQ activity app for rucking, weighted vests, loaded hikes, and treadmill walks. Built by Meridian Apps.</p>
+      </div>
+      <div>
+        <h5>Product</h5>
+        <ul>
+          <li><a href="features.html">Features</a></li>
+          <li><a href="calorie-math.html">Calorie Math</a></li>
+          <li><a href="devices.html">Supported devices</a></li>
+          <li><a href="https://apps.garmin.com/apps/201e9e43-f33c-4b56-b3f5-8a67184e3d1c">Connect IQ Store</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Help</h5>
+        <ul>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="support.html">Support &amp; contact</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+          <li><a href="mailto:garmin.lanam+rucktrack@gmail.com">Email Meridian</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 Meridian. RuckTrack is an independent app. Garmin and Connect IQ are trademarks of Garmin Ltd.
+    </div>
+  </div>
 </footer>
+
 </body>
 </html>

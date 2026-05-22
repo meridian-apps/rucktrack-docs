@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Features — RuckTrack</title>
+<meta name="description" content="What RuckTrack does on the watch and in Garmin Connect: load-aware calories, six live screens, treadmill modes, mid-activity controls, lifetime totals, FIT export.">
+<link rel="canonical" href="https://meridian-apps.github.io/rucktrack-docs/features.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Features — RuckTrack">
+<meta property="og:description" content="What RuckTrack does on the watch and in Garmin Connect: load-aware calories, six live screens, treadmill modes, mid-activity controls, lifetime totals, FIT export.">
+<meta property="og:url" content="https://meridian-apps.github.io/rucktrack-docs/features.html">
+<meta property="og:image" content="https://meridian-apps.github.io/rucktrack-docs/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Features — RuckTrack">
+<meta name="twitter:description" content="What RuckTrack does on the watch and in Garmin Connect.">
+<meta name="twitter:image" content="https://meridian-apps.github.io/rucktrack-docs/og-image.png">
+<link rel="icon" type="image/png" href="icon.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="topnav">
+  <div class="topnav-inner">
+    <a class="topnav-brand" href="./"><img src="icon.png" alt=""> RuckTrack</a>
+    <div class="topnav-links">
+      <a href="features.html">Features</a>
+      <a href="calorie-math.html">Calorie Math</a>
+      <a href="devices.html">Devices</a>
+      <a href="faq.html">FAQ</a>
+      <a href="support.html">Support</a>
+      <a class="topnav-cta" href="https://apps.garmin.com/apps/201e9e43-f33c-4b56-b3f5-8a67184e3d1c">Get it · $2.99</a>
+    </div>
+  </div>
+</nav>
+
+<div class="wrap-narrow content-page">
+<div class="page-head">
+<p class="back"><a href="./">&larr; Home</a></p>
+<h1>Features</h1>
+<p class="updated">For RuckTrack v2.1.0</p>
+</div>
+
+<p>RuckTrack is a Connect IQ Device App built specifically for rucking, weighted-vest walking, loaded hiking, and treadmill incline-walks. Everything below is shipping in the current store build.</p>
+
+<div class="toc">
+<ol>
+  <li><a href="#start">Starting a ruck</a></li>
+  <li><a href="#live">The six live screens</a></li>
+  <li><a href="#calories">Load-aware calories</a></li>
+  <li><a href="#treadmill">Indoor and treadmill modes</a></li>
+  <li><a href="#mid">Mid-activity controls</a></li>
+  <li><a href="#laps">Auto Lap and manual laps</a></li>
+  <li><a href="#sound">Sound cues</a></li>
+  <li><a href="#summary">Post-save summary</a></li>
+  <li><a href="#connect">In Garmin Connect</a></li>
+  <li><a href="#glance">Widget loop glance</a></li>
+  <li><a href="#history">History view</a></li>
+  <li><a href="#privacy">Privacy and data</a></li>
+</ol>
+</div>
+
+<h2 id="start">Starting a ruck</h2>
+<p>The start screen shows your pack weight, GPS quality, time, battery, and heart rate. Hit START and you're recording. No menu trees, no GPS-lock gate.</p>
+<p>QuickLoad lets you pick from saved weight presets or enter a one-time custom load. Presets remember their own unit (lb or kg), so you can keep "Daily 30 lb" and "Long ruck 20 kg" side by side without picking a global unit first. Repeat sessions are one tap.</p>
+
+<h2 id="live">The six live screens</h2>
+<p>All six screens are hand-drawn for AMOLED contrast. No squinting at faint gray-on-gray fields. Swipe or use UP/DOWN to move between pages.</p>
+<ol>
+  <li><strong>Primary</strong> — distance (hero), time and total calories below, and a live HR zone arc gauge along the bottom.</li>
+  <li><strong>Effort</strong> — current pace (hero), elevation gain and vertical speed with up/down arrows, and overall average pace.</li>
+  <li><strong>Calories</strong> — total burn (hero), average burn rate and pack bonus percentage, plus a bottom line showing the pack, terrain, and any kcal earned over an unloaded baseline.</li>
+  <li><strong>Lap</strong> — current lap pace (hero), lap distance and lap time, and the overall elapsed timer.</li>
+  <li><strong>HR zones</strong> — current heart rate (hero), zone label, and a circular zone gauge with a pulsating heart icon.</li>
+  <li><strong>Clock</strong> — current time with seconds, today's date, and a battery indicator that turns red when low.</li>
+</ol>
+<p>Treadmill modes drop the Effort page because vertical speed and elevation aren't meaningful indoors. Five pages in treadmill, six outdoors.</p>
+
+<h2 id="calories">Load-aware calories</h2>
+<p>This is the wedge. Generic profiles like Walk and Hike don't know your pack weight, so they under-credit a loaded carry by 10 to 20 percent per the published research. RuckTrack uses the Pandolf load-carriage equation to compute calories from body weight, pack weight, walking speed, terrain grade, and surface type. The numbers reflect what your body actually did.</p>
+<p>Four terrain coefficients: Road (1.00), Gravel (1.05), Trail (1.20), Sand (1.50). Pick one before you start, or change mid-activity. The terrain at save time is what writes to the FIT file.</p>
+<p>When you slow below walking pace or the GPS goes flaky, RuckTrack falls back to the watch's heart-rate-based estimate so calories don't stall on breaks or steep descents. The total is a hybrid of both.</p>
+<p>See the <a href="calorie-math.html">calorie math explainer</a> for the equation, the Santee descent correction, and the hybrid fallback logic.</p>
+
+<h2 id="treadmill">Indoor and treadmill modes</h2>
+<p>Treadmill mode handles the case where GPS won't help you and Garmin's HR-only profiles ignore your pack. Two indoor recording modes, picked at the start:</p>
+<ul>
+  <li><strong>Auto.</strong> Uses your watch's heart-rate-based calorie estimate, scaled up by the pack weight you've set. No incline or belt-speed input required. Good for varied-incline workouts and instructor-led classes where the machine settings change constantly.</li>
+  <li><strong>Manual.</strong> Runs the full Pandolf calculation using an incline (0 to 15 percent) and belt speed (mph or km/h) you enter. Good for steady-state treadmill walks where you can read the belt speed off the machine.</li>
+</ul>
+<p>In both indoor modes, GPS is disabled and the Effort page is hidden. Sessions save as Indoor Walk in Garmin Connect (Garmin's only indoor-walk subsport), and the pack-aware fields write the same way as outdoor sessions.</p>
+
+<h2 id="mid">Mid-activity controls</h2>
+<p>Pack weight, terrain, incline, and belt speed can all change during a session without pausing the timer. Long-press UP on any live screen to open the Settings menu, pick the value, confirm. The Pandolf model picks up the new values on the next 1-second tick. Past calorie integration is not retroactively recomputed.</p>
+<p>On touch-only watches without a reliable long-press, hit the Action button to pause and pick Settings from the pause menu. The pause menu also has a Lap option for touch-only devices.</p>
+
+<h2 id="laps">Auto Lap and manual laps</h2>
+<p>Auto Lap fires a lap marker every 1 mile (or 1 km, based on your distance unit). Each lap triggers a short haptic and a 3-second lap-summary view showing the lap's distance, time, and pace, then returns to the live screen. Manual laps fire the same haptic and summary on the Back button.</p>
+<p>If you record a manual lap before the next auto-lap marker, the auto-lap counter advances one full unit from that point. You don't get a double-lap at the next mile mark.</p>
+<p>Auto Lap is on by default. Toggle it in Settings, before or during an activity.</p>
+
+<h2 id="sound">Sound cues</h2>
+<p>Short tones fire at start, pause, resume, save, and discard. Same audio rhythm as Garmin's built-in activity profiles, so the app feels native to the recording flow you already know. Silent on watches without a speaker.</p>
+
+<h2 id="summary">Post-save summary</h2>
+<p>A six-page summary opens automatically after you save. Swipe or use UP/DOWN to move through it:</p>
+<ol>
+  <li><strong>Overview</strong> — distance hero, time and average pace, pack weight. An adaptive title like "Nice Climb" or "Strong Finish" reflects what the session actually was.</li>
+  <li><strong>Calories</strong> — total calories, average burn rate, pack bonus, and a two-line footer with the kcal and percent earned from your pack.</li>
+  <li><strong>Elevation</strong> — filled elevation chart, total ascent and descent. (Outdoor only — treadmill modes skip this page.)</li>
+  <li><strong>HR &amp; zones</strong> — zone histogram, time per zone, average and max HR.</li>
+  <li><strong>Lifetime totals</strong> — your cumulative ruck count, total distance, total time, and total calories carried. Updates to include the session you just saved, so the numbers climb every time.</li>
+  <li><strong>Stats Guide</strong> — pointer to Garmin Connect's Stats → Connect IQ section, where the load-aware fields live. Discoverability matters; this page closes the loop.</li>
+</ol>
+<p>Press the Action button on any summary page to open <strong>Calorie Details</strong> — a scrolling list of every input that fed the math: total burn, calories without pack, pack bonus in kcal and percent, your watch's native estimate, plus pack weight, terrain, body weight, and the speed and grade ranges used.</p>
+
+<h2 id="connect">In Garmin Connect</h2>
+<p>Outdoor sessions classify as <strong>Rucking</strong> (Garmin's FIT subsport 124, fleet-wide). Activity names auto-populate as "Ruck 35 lb" or "Treadmill Ruck 16 kg" so the activity list reads at a glance — no manual rename.</p>
+<p>The activity's <strong>Stats → Connect IQ</strong> section shows seven load-aware fields:</p>
+<ul>
+  <li>Pack Weight (lb or kg, in the unit you carried)</li>
+  <li>Ruck Calories — your total, Pandolf + native fallback</li>
+  <li>Calories Without Pack — the same session with no load, for comparison</li>
+  <li>Pack Calorie Bonus — the kcal earned from carrying weight</li>
+  <li>Burn Rate — average kcal per hour</li>
+  <li>Terrain Surface — Road, Gravel, Trail, or Sand</li>
+  <li>Treadmill Mode and Incline (where applicable)</li>
+</ul>
+<p>Per-second <strong>grade</strong> and <strong>metabolic rate</strong> write to the FIT record stream, so Garmin Connect renders them as time-series charts on the activity detail page alongside the native pace, heart-rate, and elevation graphs.</p>
+
+<h2 id="glance">Widget loop glance</h2>
+<p>Scroll to RuckTrack in your watch's widget loop to see your last saved session: distance, duration, pack weight, and calories. One-glance check; no need to open the app.</p>
+
+<h2 id="history">History view</h2>
+<p>From the start-screen Settings menu, pick History to see your last 10 saved rucks: date, distance, duration, pack weight, and calories per card. Newest first. Read-only — for editing or deleting an activity, use Garmin Connect.</p>
+
+<h2 id="privacy">Privacy and data</h2>
+<p>Every setting, preset, and history entry stays on your watch. Meridian operates no servers, runs no analytics, has no companion phone app, and uses no third-party SDKs. The full <a href="privacy.html">privacy policy</a> covers what gets stored locally and how Garmin Connect handles the FIT file.</p>
+
+<p class="back" style="margin-top: 2rem;"><a href="./">&larr; Home</a></p>
+
+</div>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-cols">
+      <div>
+        <h5>RuckTrack</h5>
+        <p>A Garmin Connect IQ activity app for rucking, weighted vests, loaded hikes, and treadmill walks. Built by Meridian Apps.</p>
+      </div>
+      <div>
+        <h5>Product</h5>
+        <ul>
+          <li><a href="features.html">Features</a></li>
+          <li><a href="calorie-math.html">Calorie Math</a></li>
+          <li><a href="devices.html">Supported devices</a></li>
+          <li><a href="https://apps.garmin.com/apps/201e9e43-f33c-4b56-b3f5-8a67184e3d1c">Connect IQ Store</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Help</h5>
+        <ul>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="support.html">Support &amp; contact</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+          <li><a href="mailto:garmin.lanam+rucktrack@gmail.com">Email Meridian</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 Meridian. RuckTrack is an independent app. Garmin and Connect IQ are trademarks of Garmin Ltd.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
