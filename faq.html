@@ -24,6 +24,22 @@
   "mainEntity": [
     {
       "@type": "Question",
+      "name": "Is there a free trial?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The RuckTrack (KiezelPay) listing on the Connect IQ Store includes a 7-day free trial. You install it, use it for a week, then complete the purchase only if you want to keep it. After the trial, the app shows a code that you enter at www.kzl.io/code to finish the purchase. No payment info required up front. The original RuckTrack listing (Garmin Pay, $2.99 USD) is the same app without the trial step. If you already know you want it, that's the simpler path. For the full comparison between the two listings, see the next question."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the difference between RuckTrack and RuckTrack (KiezelPay)?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Same app. The difference is the payment system and the trial. RuckTrack uses Garmin Pay, the standard Connect IQ Store payment system. $2.99 USD, no trial, instant install after purchase. RuckTrack (KiezelPay) uses KiezelPay, a third-party payment system Garmin permits for Connect IQ apps. $3.49 USD with a 7-day free trial. The $0.50 difference absorbs KiezelPay's processing margin. Both ship from the same codebase, the same 57 supported devices, the same calorie math, the same screens, the same FIT fields. A feature shipped in one ships in both. Why two listings exist: Garmin Pay works well in most markets but has friction in some regions where it isn't supported, and Garmin Pay doesn't support trials for third-party Connect IQ apps. KiezelPay covers both gaps. Having both listings lets RuckTrack reach buyers in either situation. If you're choosing fresh: the KiezelPay version lets you try the app for 7 days before committing."
+      }
+    },
+    {
+      "@type": "Question",
       "name": "What is rucking?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -126,11 +142,13 @@
 <div class="page-head">
 <p class="back"><a href="./">&larr; Home</a></p>
 <h1>Frequently Asked Questions</h1>
-<p class="updated">Last updated: 2026-05-22</p>
+<p class="updated">Last updated: 2026-05-26</p>
 </div>
 
 <div class="toc">
 <ol>
+  <li><a href="#trial">Is there a free trial?</a></li>
+  <li><a href="#kp-vs-gp">What's the difference between RuckTrack and RuckTrack (KiezelPay)?</a></li>
   <li><a href="#what-is-rucking">What is rucking?</a></li>
   <li><a href="#devices">Which Garmin watches does RuckTrack work on?</a></li>
   <li><a href="#calories">How are calories calculated?</a></li>
@@ -144,16 +162,31 @@
 </ol>
 </div>
 
-<h2 id="what-is-rucking">1. What is rucking?</h2>
+<h2 id="trial">1. Is there a free trial?</h2>
+<p>Yes. The <strong>RuckTrack (KiezelPay)</strong> listing on the Connect IQ Store includes a 7-day free trial. You install it, use it for a week, then complete the purchase only if you want to keep it. After the trial, the app shows a code that you enter at <a href="https://www.kzl.io/code">www.kzl.io/code</a> to finish the purchase. No payment info required up front.</p>
+<p>The original <strong>RuckTrack</strong> listing (Garmin Pay, $2.99 USD) is the same app without the trial step. If you already know you want it, that's the simpler path.</p>
+<p>For the full comparison between the two listings, see the next question.</p>
+
+<h2 id="kp-vs-gp">2. What's the difference between RuckTrack and RuckTrack (KiezelPay)?</h2>
+<p>Same app. The difference is the payment system and the trial.</p>
+<ul>
+  <li><strong>RuckTrack</strong> uses Garmin Pay, the standard Connect IQ Store payment system. $2.99 USD, no trial, instant install after purchase. <a href="https://apps.garmin.com/apps/201e9e43-f33c-4b56-b3f5-8a67184e3d1c">Store listing</a>.</li>
+  <li><strong>RuckTrack (KiezelPay)</strong> uses KiezelPay, a third-party payment system Garmin permits for Connect IQ apps. $3.49 USD with a 7-day free trial. The $0.50 difference absorbs KiezelPay's processing margin. <a href="https://apps.garmin.com/apps/5c918d83-7280-4dae-ae78-c795ee03336c">Store listing</a>.</li>
+</ul>
+<p>Both ship from the same codebase. Same 57 supported devices, same calorie math, same screens, same FIT fields. A feature shipped in one ships in both.</p>
+<p>Why two listings exist: Garmin Pay works well in most markets but has friction in some regions where it isn't supported, and Garmin Pay doesn't support trials for third-party Connect IQ apps. KiezelPay covers both gaps. Having both listings lets RuckTrack reach buyers in either situation.</p>
+<p>If you're choosing fresh: the KiezelPay version lets you try the app for 7 days before committing.</p>
+
+<h2 id="what-is-rucking">3. What is rucking?</h2>
 <p>Rucking is walking with a weighted pack. The load adds resistance to an otherwise low-impact activity, increasing calorie burn and engaging your posterior chain and core. It started as a military fitness staple and has become mainstream in hiking, strength training, and endurance circles.</p>
 
-<h2 id="devices">2. Which Garmin watches does RuckTrack work on?</h2>
+<h2 id="devices">4. Which Garmin watches does RuckTrack work on?</h2>
 <p>RuckTrack runs on 57 AMOLED Garmin devices, including Forerunner (70 / 165 / 170 / 265 / 570 / 965 / 970), f&#x113;nix 8 / E, Venu (2 / 3 / 4), epix Pro, Instinct 3 AMOLED, D2 Mach / Air, Descent MK3 / G2, Approach S50 / S70, MARQ 2, tactix 7/8 AMOLED, quatix AMOLED, and v&iacute;voactive 5 / 6. See <a href="devices.html">the full devices page</a> for the per-family breakdown, or check the <a href="https://apps.garmin.com/apps/201e9e43-f33c-4b56-b3f5-8a67184e3d1c">Connect IQ Store listing</a> for the live compatibility check at install time.</p>
 
-<h2 id="calories">3. How are calories calculated?</h2>
+<h2 id="calories">5. How are calories calculated?</h2>
 <p>RuckTrack uses the Pandolf equation, a published military physiology model that estimates metabolic cost from body weight, pack weight, walking speed, grade, and terrain (Road, Gravel, Trail, Sand). When you slow below walking pace, RuckTrack falls back to your watch's native heart-rate-based estimate so calories don't stall on breaks or steep descents. The total shown is a hybrid of both.</p>
 
-<h2 id="connect-stats">4. Why are my RuckTrack calories different from the headline number in Garmin Connect?</h2>
+<h2 id="connect-stats">6. Why are my RuckTrack calories different from the headline number in Garmin Connect?</h2>
 <p>Two different calculations, two different questions:</p>
 <ul>
   <li>The big calorie number at the top of an activity in Garmin Connect is Garmin's own heart-rate-based estimate. It doesn't know you were carrying a load.</li>
@@ -161,7 +194,7 @@
 </ul>
 <p>Both numbers are correct for what they measure. The headline answers "how hard did your body work?" The Connect IQ section answers "how much of that came from the pack?"</p>
 
-<h2 id="treadmill">5. Can I use RuckTrack indoors or on a treadmill?</h2>
+<h2 id="treadmill">7. Can I use RuckTrack indoors or on a treadmill?</h2>
 <p>Yes. There are two indoor modes, selectable from the Settings menu before you start a session:</p>
 <ul>
   <li><strong>Auto.</strong> Uses your watch's heart rate to estimate calories, scaled up by the pack weight you've set. No ongoing input required. Good for varied-incline workouts and instructor-led classes.</li>
@@ -169,16 +202,16 @@
 </ul>
 <p>In both indoor modes, GPS is disabled and the Effort page (vertical speed, elevation gain) is hidden because they aren't meaningful indoors.</p>
 
-<h2 id="data">6. Does RuckTrack collect any data?</h2>
+<h2 id="data">8. Does RuckTrack collect any data?</h2>
 <p>No. Every setting, preset, and history entry stays on your watch. Meridian operates no servers, runs no analytics, has no companion phone app, and uses no third-party SDKs. Full details on the <a href="privacy.html">Privacy page</a>.</p>
 
-<h2 id="mid-activity">7. How do I change pack weight mid-activity?</h2>
+<h2 id="mid-activity">9. How do I change pack weight mid-activity?</h2>
 <p>From the live screen, long-press <strong>UP</strong> to open the activity Settings menu without pausing. (On touch-only watches without a reliable long-press, hit the Action button to pause and pick <strong>Settings</strong> from the pause menu.) Tap <strong>Pack</strong>, set the new weight, and confirm. The change applies forward to the rest of the session. Past calorie integration is not retroactively recomputed.</p>
 
-<h2 id="auto-lap">8. What is Auto Lap?</h2>
+<h2 id="auto-lap">10. What is Auto Lap?</h2>
 <p>Auto Lap fires a lap marker at every 1 mile (or 1 km, based on your distance unit) of covered distance. Each lap triggers a short vibration and shows a 3-second on-screen summary, then returns to the live screen. The lap page (page 4) shows current-lap pace, distance, and time. Toggle Auto Lap on or off in the activity Settings menu. If you record a manual lap (Back button), the next auto-lap marker advances by one full unit from that point, so you won't get a double-lap.</p>
 
-<h2 id="dashes">9. Why does a metric show "--" early in an activity?</h2>
+<h2 id="dashes">11. Why does a metric show "--" early in an activity?</h2>
 <p>RuckTrack shows "--" instead of zero whenever a value isn't trustworthy yet. Common cases:</p>
 <ul>
   <li><strong>Pace</strong> shows "--" until your speed is above 0.2 m/s and a GPS fix is available.</li>
@@ -187,7 +220,7 @@
 </ul>
 <p>This is intentional. Rendering "0" would read as "the metric is broken" rather than "data is still warming up."</p>
 
-<h2 id="refund">10. How do I request a refund?</h2>
+<h2 id="refund">12. How do I request a refund?</h2>
 <p>Garmin permits returns of paid Connect IQ apps (commonly reported as a 48-hour window). The mechanism is typically to uninstall the app from your watch shortly after purchase; Garmin then reverses the charge automatically. If you have trouble, contact <a href="https://support.garmin.com/">Garmin Support</a> through the Connect IQ Store. Meridian doesn't process payments and has no access to your purchase.</p>
 
 <p>Have a question that isn't here? <a href="support.html">Get in touch</a>.</p>
