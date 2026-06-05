@@ -38,7 +38,7 @@
 <div class="page-head">
 <p class="back"><a href="./">&larr; Home</a></p>
 <h1>Features</h1>
-<p class="updated">For RuckTrack v2.1.0</p>
+<p class="updated">For RuckTrack v2.4.3</p>
 </div>
 
 <p>RuckTrack is a Connect IQ Device App built specifically for rucking, weighted-vest walking, loaded hiking, and treadmill incline-walks. Everything below is shipping in the current store build.</p>
@@ -65,7 +65,7 @@
 <p>QuickLoad lets you pick from saved weight presets or enter a one-time custom load. Presets remember their own unit (lb or kg), so you can keep "Daily 30 lb" and "Long ruck 20 kg" side by side without picking a global unit first. Repeat sessions are one tap.</p>
 
 <h2 id="live">The six live screens</h2>
-<p>All six screens are hand-drawn for AMOLED contrast. No squinting at faint gray-on-gray fields. Swipe or use UP/DOWN to move between pages.</p>
+<p>All six screens are hand-drawn for high contrast. No squinting at faint gray-on-gray fields. Swipe or use UP/DOWN to move between pages.</p>
 <ol>
   <li><strong>Primary</strong> — distance (hero), time and total calories below, and a live HR zone arc gauge along the bottom.</li>
   <li><strong>Effort</strong> — current pace (hero), elevation gain and vertical speed with up/down arrows, and overall average pace.</li>
@@ -78,7 +78,7 @@
 
 <h2 id="calories">Load-aware calories</h2>
 <p>This is the wedge. Generic profiles like Walk and Hike don't know your pack weight, so they under-credit a loaded carry by 10 to 20 percent per the published research. RuckTrack uses the Pandolf load-carriage equation to compute calories from body weight, pack weight, walking speed, terrain grade, and surface type. The numbers reflect what your body actually did.</p>
-<p>Four terrain coefficients: Road (1.00), Gravel (1.05), Trail (1.20), Sand (1.50). Pick one before you start, or change mid-activity. The terrain at save time is what writes to the FIT file.</p>
+<p>Five terrain coefficients: Road (1.00), Gravel (1.05), Trail (1.20), Sand (1.50), Snow (2.50). Pick one before you start, or change mid-activity. The terrain at save time is what writes to the FIT file.</p>
 <p>When you slow below walking pace or the GPS goes flaky, RuckTrack falls back to the watch's heart-rate-based estimate so calories don't stall on breaks or steep descents. The total is a hybrid of both.</p>
 <p>See the <a href="calorie-math.html">calorie math explainer</a> for the equation, the Santee descent correction, and the hybrid fallback logic.</p>
 
@@ -103,13 +103,14 @@
 <p>Short tones fire at start, pause, resume, save, and discard. Same audio rhythm as Garmin's built-in activity profiles, so the app feels native to the recording flow you already know. Silent on watches without a speaker.</p>
 
 <h2 id="summary">Post-save summary</h2>
-<p>A six-page summary opens automatically after you save. Swipe or use UP/DOWN to move through it:</p>
+<p>A seven-page summary opens automatically after you save. Swipe or use UP/DOWN to move through it:</p>
 <ol>
   <li><strong>Overview</strong> — distance hero, time and average pace, pack weight. An adaptive title like "Nice Climb" or "Strong Finish" reflects what the session actually was.</li>
   <li><strong>Calories</strong> — total calories, average burn rate, pack bonus, and a two-line footer with the kcal and percent earned from your pack.</li>
+  <li><strong>Volume</strong> — pack weight × distance, the load-moved tonnage, with a "from N lb pack" attribution. The strength-training analog of the calorie page.</li>
   <li><strong>Elevation</strong> — filled elevation chart, total ascent and descent. (Outdoor only — treadmill modes skip this page.)</li>
   <li><strong>HR &amp; zones</strong> — zone histogram, time per zone, average and max HR.</li>
-  <li><strong>Lifetime totals</strong> — your cumulative ruck count, total distance, total time, and total calories carried. Updates to include the session you just saved, so the numbers climb every time.</li>
+  <li><strong>Lifetime totals</strong> — your cumulative ruck count, total distance, total time, total calories, and total tonnage carried. Updates to include the session you just saved, so the numbers climb every time.</li>
   <li><strong>Stats Guide</strong> — pointer to Garmin Connect's Stats → Connect IQ section, where the load-aware fields live. Discoverability matters; this page closes the loop.</li>
 </ol>
 <p>Press the Action button on any summary page to open <strong>Calorie Details</strong> — a scrolling list of every input that fed the math: total burn, calories without pack, pack bonus in kcal and percent, your watch's native estimate, plus pack weight, terrain, body weight, and the speed and grade ranges used.</p>
@@ -123,7 +124,7 @@
   <li>Calories Without Pack — the same session with no load, for comparison</li>
   <li>Pack Calorie Bonus — the kcal earned from carrying weight</li>
   <li>Burn Rate — average kcal per hour</li>
-  <li>Terrain Surface — Road, Gravel, Trail, or Sand</li>
+  <li>Terrain Surface — Road, Gravel, Trail, Sand, or Snow</li>
   <li>Treadmill Mode and Incline (where applicable)</li>
 </ul>
 <p>Per-second <strong>grade</strong> and <strong>metabolic rate</strong> write to the FIT record stream, so Garmin Connect renders them as time-series charts on the activity detail page alongside the native pace, heart-rate, and elevation graphs.</p>
