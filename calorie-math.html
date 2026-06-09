@@ -53,6 +53,7 @@
   <li><a href="#hybrid">Hybrid fallback to heart rate</a></li>
   <li><a href="#auto">Treadmill Auto mode</a></li>
   <li><a href="#totals">What ends up on the watch and in Connect</a></li>
+  <li><a href="#references">References</a></li>
 </ol>
 </div>
 
@@ -61,7 +62,7 @@
 <p>For rucking specifically, the U.S. Army Research Institute of Environmental Medicine spent decades validating a different approach: estimate metabolic cost from mechanical inputs (body weight, load, speed, grade, terrain) and read calories straight off the metabolic rate. That's the Pandolf equation.</p>
 
 <h2 id="pandolf">The Pandolf equation</h2>
-<p>The original 1977 form, as RuckTrack runs it:</p>
+<p>The original 1977 form (<a href="#references">Pandolf, Givoni &amp; Goldman</a>), as RuckTrack runs it:</p>
 <div class="formula">
 M = 1.5W + 2(W+L)(L/W)² + η(W+L)(1.5V² + 0.35VG)
 </div>
@@ -80,18 +81,18 @@ M = 1.5W + 2(W+L)(L/W)² + η(W+L)(1.5V² + 0.35VG)
 <p>Want to play with the numbers? The <a href="calculator.html">interactive rucking calorie calculator</a> runs this exact function in your browser, loaded and unloaded side by side.</p>
 
 <h2 id="terrain">Terrain coefficients</h2>
-<p>The terrain coefficient η scales the velocity-and-grade work term by how much energy the surface costs you. Values from Pandolf's original research:</p>
+<p>The terrain coefficient η scales the velocity-and-grade work term by how much energy the surface costs you. Values from the U.S. Army terrain-factor research (<a href="#references">Soule &amp; Goldman, 1972</a>):</p>
 <ul>
   <li><strong>Road</strong> — η = 1.00. Paved or hard-packed.</li>
   <li><strong>Gravel</strong> — η = 1.05. Packed gravel paths and well-maintained fire roads.</li>
   <li><strong>Trail</strong> — η = 1.20. Hiking trails, dirt, loose rock.</li>
   <li><strong>Sand</strong> — η = 1.50. Soft sand, deep mud.</li>
-  <li><strong>Snow</strong> — η = 2.50. Soft snow (the Soule &amp; Goldman 1972 coefficient). Trudging through deep powder genuinely costs about two and a half times the surface term of pavement, which is why winter rucks read so much higher.</li>
+  <li><strong>Snow</strong> — η = 2.50. Soft snow (the <a href="#references">Soule &amp; Goldman 1972</a> coefficient). Trudging through deep powder genuinely costs about two and a half times the surface term of pavement, which is why winter rucks read so much higher.</li>
 </ul>
 <p>A 50 percent increase from Road to Sand, and 150 percent for soft snow, for the same speed and load: these are real numbers from the literature, not rough estimates. Pick the terrain in Settings before you start, or change it mid-activity. The value at save time writes to the FIT file as the <code>terrain_factor</code> field.</p>
 
 <h2 id="descent">The Santee descent correction</h2>
-<p>Vanilla Pandolf underestimates metabolic cost on negative grades — the equation goes mathematically silly when G is large and negative, sometimes returning a metabolic rate below resting. Santee et al. (2001) showed empirically that descent still costs at least the resting/maintenance term.</p>
+<p>Vanilla Pandolf underestimates metabolic cost on negative grades — the equation goes mathematically silly when G is large and negative, sometimes returning a metabolic rate below resting. <a href="#references">Santee et al. (2001)</a> showed empirically that descent still costs at least the resting/maintenance term.</p>
 <p>RuckTrack applies the Santee floor: on negative grades, M is floored at <code>1.5W</code>. Calories don't dip below maintenance just because you're walking downhill.</p>
 
 <h2 id="hybrid">Hybrid fallback to heart rate</h2>
@@ -121,6 +122,13 @@ kcal = native × (1 + α × L/W)        <em>where α = 0.4</em>
 <ul>
   <li>Pandolf KB, Givoni B, Goldman RF. "Predicting energy expenditure with loads while standing or walking very slowly." <em>Journal of Applied Physiology</em>, 1977.</li>
   <li>Santee WR, Allison WF, Blanchard LA, Small MG. "A proposed model for load carriage on sloped terrain." <em>Aviation, Space, and Environmental Medicine</em>, 2001.</li>
+</ul>
+
+<h2 id="references">References</h2>
+<ul>
+  <li>Pandolf, K.B., Givoni, B., &amp; Goldman, R.F. (1977). Predicting energy expenditure with loads while standing or walking very slowly. <em>Journal of Applied Physiology</em>, 43(4), 577&ndash;581. <a href="https://doi.org/10.1152/jappl.1977.43.4.577" rel="noopener">doi:10.1152/jappl.1977.43.4.577</a></li>
+  <li>Soule, R.G., &amp; Goldman, R.F. (1972). Terrain coefficients for energy cost prediction. <em>Journal of Applied Physiology</em>, 32(5), 706&ndash;708. <a href="https://doi.org/10.1152/jappl.1972.32.5.706" rel="noopener">doi:10.1152/jappl.1972.32.5.706</a></li>
+  <li>Santee, W.R., Blanchard, L.A., Small, M.G., Gonzalez, J.A., Matthew, W.T., &amp; Speckman, K.L. (2001). <em>The impact of load and grade on energy expenditure during load carriage, part II: field study.</em> U.S. Army Research Institute of Environmental Medicine (USARIEM).</li>
 </ul>
 
 <p class="back" style="margin-top: 2rem;"><a href="./">&larr; Home</a></p>

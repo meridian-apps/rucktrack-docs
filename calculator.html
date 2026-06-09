@@ -39,7 +39,7 @@
 .calc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem 1.2rem; }
 @media (max-width: 560px) { .calc-grid { grid-template-columns: 1fr; } }
 .calc label { display: block; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: #5a6b5a; margin-bottom: 0.3rem; }
-.calc .row { display: flex; gap: 0.5rem; }
+.calc .inrow { display: flex; gap: 0.5rem; }
 .calc input[type=number], .calc select { font: inherit; padding: 0.45rem 0.6rem; border: 1px solid #cfd8cf; border-radius: 8px; width: 100%; background: #fafcfa; }
 .calc input[type=number]:focus, .calc select:focus { outline: 2px solid var(--brand-glow); border-color: var(--brand-glow); }
 .calc .unit { flex: 0 0 5.2rem; }
@@ -93,21 +93,21 @@ table.scen td b { color: var(--brand); }
   <div class="calc-grid">
     <div>
       <label for="bw">Body weight</label>
-      <div class="row">
+      <div class="inrow">
         <input type="number" id="bw" value="180" min="60" max="660" step="1">
         <select id="bwu" class="unit"><option value="lb" selected>lb</option><option value="kg">kg</option></select>
       </div>
     </div>
     <div>
       <label for="pw">Pack weight</label>
-      <div class="row">
+      <div class="inrow">
         <input type="number" id="pw" value="35" min="0" max="220" step="1">
         <select id="pwu" class="unit"><option value="lb" selected>lb</option><option value="kg">kg</option></select>
       </div>
     </div>
     <div>
       <label for="sp" id="spLabel">Speed</label>
-      <div class="row">
+      <div class="inrow">
         <input type="number" id="sp" value="3.0" min="0.5" max="6" step="0.1">
         <select id="spu" class="unit"><option value="mph" selected>mph</option><option value="kmh">km/h</option></select>
       </div>
