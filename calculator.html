@@ -4,16 +4,16 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Rucking Calorie Calculator (Pandolf Equation) — RuckTrack</title>
-<meta name="description" content="Free rucking calorie calculator using the U.S. Army Pandolf equation. Enter body weight, pack weight, speed, grade, and terrain to see calories per hour, loaded vs unloaded.">
+<meta name="description" content="Free calorie calculator for rucking, weighted vest walks, and loaded hikes, using the U.S. Army Pandolf equation. Outdoor or treadmill: body weight, pack weight, speed, grade, and terrain in; calories per hour out, loaded vs unloaded.">
 <link rel="canonical" href="https://meridian-apps.github.io/rucktrack-docs/calculator.html">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Rucking Calorie Calculator (Pandolf Equation)">
-<meta property="og:description" content="Enter body weight, pack weight, speed, grade, and terrain. See calories per hour for a loaded carry vs an unloaded walk, computed with the U.S. Army Pandolf equation.">
+<meta property="og:description" content="Calories per hour for a loaded carry vs an unloaded walk, computed with the U.S. Army Pandolf equation. Works for rucks, loaded packs, and weighted vests, outdoors or on the treadmill.">
 <meta property="og:url" content="https://meridian-apps.github.io/rucktrack-docs/calculator.html">
 <meta property="og:image" content="https://meridian-apps.github.io/rucktrack-docs/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Rucking Calorie Calculator (Pandolf Equation)">
-<meta name="twitter:description" content="Calories per hour for a loaded carry vs an unloaded walk, computed with the U.S. Army Pandolf equation.">
+<meta name="twitter:description" content="Calories per hour for a loaded carry vs an unloaded walk: rucks, loaded packs, and weighted vests, outdoors or on the treadmill.">
 <meta name="twitter:image" content="https://meridian-apps.github.io/rucktrack-docs/og-image.png">
 <link rel="icon" type="image/png" href="icon.png">
 <link rel="stylesheet" href="style.css">
@@ -26,12 +26,16 @@
   "applicationCategory": "HealthApplication",
   "operatingSystem": "Any (web browser)",
   "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-  "description": "Rucking calorie calculator based on the U.S. Army Pandolf load-carriage equation: body weight, pack weight, speed, grade, and terrain in; calories per hour out, loaded vs unloaded.",
+  "description": "Calorie calculator for rucking, weighted vest walks, and loaded hikes, based on the U.S. Army Pandolf load-carriage equation. Outdoor and treadmill modes: body weight, pack weight, speed, grade, and terrain in; calories per hour out, loaded vs unloaded.",
   "publisher": { "@type": "Organization", "name": "Meridian Apps" }
 }
 </script>
 <style>
 .calc { background: #fff; border: 1px solid #e2e8e2; border-radius: 12px; padding: 1.25rem; margin: 1.5rem 0; }
+.calc-mode { display: flex; gap: 0.5rem; margin-bottom: 0.5rem; }
+.calc-mode button { font: inherit; font-size: 0.85rem; padding: 0.4rem 1.1rem; border: 1px solid #cfd8cf; border-radius: 999px; background: #fafcfa; cursor: pointer; }
+.calc-mode button.active { background: var(--brand); color: #fff; border-color: var(--brand); }
+.calc-mode-note { font-size: 0.8rem; color: #5a6b5a; margin: 0 0 1rem; display: none; }
 .calc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem 1.2rem; }
 @media (max-width: 560px) { .calc-grid { grid-template-columns: 1fr; } }
 .calc label { display: block; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: #5a6b5a; margin-bottom: 0.3rem; }
@@ -74,12 +78,18 @@ table.scen td b { color: var(--brand); }
 <div class="page-head">
 <p class="back"><a href="./">&larr; Home</a></p>
 <h1>Rucking calorie calculator</h1>
-<p class="updated">The Pandolf load-carriage equation, in your browser. The same math RuckTrack runs on your watch.</p>
+<p class="updated">The Pandolf load-carriage equation, in your browser. The same math RuckTrack runs on your watch, whether the weight is a ruck, a loaded pack, or a weighted vest.</p>
 </div>
 
-<p>Most watches estimate calories from heart rate, which means a 35 lb ruck and an unloaded walk can come back with nearly the same number. This calculator uses the U.S. Army's Pandolf equation instead: body weight, pack weight, speed, grade, and terrain in; metabolic cost out. The loaded and unloaded columns update together so you can see exactly what your pack is worth.</p>
+<p>Most watches estimate calories from heart rate, which means a 35 lb ruck and an unloaded walk can come back with nearly the same number. This calculator uses the U.S. Army's Pandolf equation instead: body weight, pack weight, speed, grade, and terrain in; metabolic cost out. The loaded and unloaded columns update together so you can see exactly what your pack is worth. The equation doesn't care what you call the weight: ruck plates, a loaded hiking pack, and a weighted vest all count the same.</p>
 
 <div class="calc" id="calc">
+  <div class="calc-mode" role="tablist" aria-label="Mode">
+    <button type="button" id="modeOutdoor" class="active">Outdoor</button>
+    <button type="button" id="modeTreadmill">Treadmill</button>
+  </div>
+  <p class="calc-mode-note" id="modeNote">Mirrors RuckTrack's Manual treadmill mode: incline and belt speed into the full equation, terrain fixed at Road (&eta; = 1.0). The app's Auto mode scales the watch's own heart-rate estimate by pack weight instead, which a browser can't reproduce.</p>
+
   <div class="calc-grid">
     <div>
       <label for="bw">Body weight</label>
@@ -96,17 +106,17 @@ table.scen td b { color: var(--brand); }
       </div>
     </div>
     <div>
-      <label for="sp">Speed</label>
+      <label for="sp" id="spLabel">Speed</label>
       <div class="row">
         <input type="number" id="sp" value="3.0" min="0.5" max="6" step="0.1">
         <select id="spu" class="unit"><option value="mph" selected>mph</option><option value="kmh">km/h</option></select>
       </div>
     </div>
     <div>
-      <label for="gr">Grade (%) <span style="font-weight:400;text-transform:none">&nbsp;0 = flat, 8 = solid hill</span></label>
+      <label for="gr" id="grLabel">Grade (%) <span style="font-weight:400;text-transform:none">&nbsp;0 = flat, 8 = solid hill</span></label>
       <input type="number" id="gr" value="0" min="-20" max="20" step="1">
     </div>
-    <div style="grid-column: 1 / -1;">
+    <div style="grid-column: 1 / -1;" id="terrainField">
       <label for="tr">Terrain</label>
       <select id="tr">
         <option value="1.0">Paved road (&eta; = 1.0)</option>
@@ -131,7 +141,7 @@ table.scen td b { color: var(--brand); }
 <p>This table is generated live by the same function as the calculator, using your body weight, speed, and grade from above. The pattern worth knowing: the pack bonus scales with the load-to-body-weight ratio. Grade and terrain raise the total burn a lot, but they raise the loaded and unloaded numbers together, so the percentage moves slowly. A heavy pack on a lighter body is what pushes the bonus past 25 percent.</p>
 
 <table class="scen" id="scenTable">
-  <thead><tr><th>Pack</th><th>Paved road, flat</th><th>Trail, flat</th><th>Trail, 8% grade</th></tr></thead>
+  <thead></thead>
   <tbody></tbody>
 </table>
 
@@ -152,7 +162,7 @@ M = 1.5W + 2(W+L)(L/W)&sup2; + &eta;(W+L)(1.5V&sup2; + 0.35VG)
 </ul>
 
 <h2>The same math, on your wrist</h2>
-<p>RuckTrack runs this equation live during your ruck: speed from GPS, grade from a rolling barometric buffer, terrain from a picker, and an unloaded baseline computed in parallel so the pack bonus shows on the watch and lands in Garmin Connect. It is $2.99 on the Connect IQ store, with no account and no subscription.</p>
+<p>RuckTrack runs this equation live during your ruck: speed from GPS, grade from a rolling barometric buffer, terrain from a picker, and an unloaded baseline computed in parallel so the pack bonus shows on the watch and lands in Garmin Connect. Treadmill rucks and vest walks are covered by two indoor modes. It is $2.99 on the Connect IQ store, with no account and no subscription.</p>
 <p><a class="btn btn-primary" href="https://apps.garmin.com/apps/201e9e43-f33c-4b56-b3f5-8a67184e3d1c">Get RuckTrack for Garmin</a></p>
 
 <p class="back" style="margin-top: 2rem;"><a href="./">&larr; Home</a></p>
@@ -196,6 +206,7 @@ M = 1.5W + 2(W+L)(L/W)&sup2; + &eta;(W+L)(1.5V&sup2; + 0.35VG)
 (function () {
   "use strict";
   var LB = 0.45359237, MPH = 0.44704, KCAL = 3600 / 4184, CAP = 2.5;
+  var mode = "outdoor";
 
   // Mirrors RuckSession.computePandolfWatts on the watch, including the
   // 2.5 m/s walking cap and the Santee descent floor.
@@ -220,9 +231,27 @@ M = 1.5W + 2(W+L)(L/W)&sup2; + &eta;(W+L)(1.5V&sup2; + 0.35VG)
       lKg: $("pwu").value === "lb" ? pw * LB : pw,
       vMs: $("spu").value === "mph" ? sp * MPH : sp / 3.6,
       g: gr,
-      eta: parseFloat($("tr").value),
-      spRaw: sp, spUnit: $("spu").value
+      eta: mode === "treadmill" ? 1.0 : parseFloat($("tr").value)
     };
+  }
+
+  function setMode(m) {
+    mode = m;
+    $("modeOutdoor").classList.toggle("active", m === "outdoor");
+    $("modeTreadmill").classList.toggle("active", m === "treadmill");
+    $("modeNote").style.display = m === "treadmill" ? "block" : "none";
+    $("terrainField").style.display = m === "treadmill" ? "none" : "";
+    $("spLabel").textContent = m === "treadmill" ? "Belt speed" : "Speed";
+    var gl = $("grLabel");
+    if (m === "treadmill") {
+      gl.innerHTML = 'Incline (%) <span style="font-weight:400;text-transform:none">&nbsp;0 to 15, like the treadmill console</span>';
+      $("gr").min = 0; $("gr").max = 15;
+      if (val("gr") < 0) { $("gr").value = 0; }
+    } else {
+      gl.innerHTML = 'Grade (%) <span style="font-weight:400;text-transform:none">&nbsp;0 = flat, 8 = solid hill</span>';
+      $("gr").min = -20; $("gr").max = 20;
+    }
+    update();
   }
 
   function update() {
@@ -248,8 +277,9 @@ M = 1.5W + 2(W+L)(L/W)&sup2; + &eta;(W+L)(1.5V&sup2; + 0.35VG)
     if (i.vMs > CAP) {
       notes.push("Speed capped at 2.5 m/s (5.6 mph / 9.0 km/h): Pandolf is validated for walking, so faster inputs are clamped, exactly as on the watch.");
     }
+    var vc = Math.min(i.vMs, CAP);
     var rawL = 1.5 * i.wKg + 2 * (i.wKg + i.lKg) * (i.lKg / i.wKg) * (i.lKg / i.wKg)
-             + i.eta * (i.wKg + i.lKg) * (1.5 * Math.min(i.vMs, CAP) * Math.min(i.vMs, CAP) + 0.35 * Math.min(i.vMs, CAP) * i.g);
+             + i.eta * (i.wKg + i.lKg) * (1.5 * vc * vc + 0.35 * vc * i.g);
     if (i.g < 0 && rawL < 1.5 * i.wKg) {
       notes.push("Descent floor active: the raw equation went below standing cost, so the result is floored at 1.5W (the Santee correction).");
     }
@@ -261,7 +291,11 @@ M = 1.5W + 2(W+L)(L/W)&sup2; + &eta;(W+L)(1.5V&sup2; + 0.35VG)
 
   function renderTable(i) {
     var loadsLb = [20, 35, 45];
-    var cols = [{ eta: 1.0, g: 0 }, { eta: 1.2, g: 0 }, { eta: 1.2, g: 8 }];
+    var cols = mode === "treadmill"
+      ? [{ eta: 1.0, g: 0, h: "Flat (0%)" }, { eta: 1.0, g: 8, h: "8% incline" }, { eta: 1.0, g: 12, h: "12% incline" }]
+      : [{ eta: 1.0, g: 0, h: "Paved road, flat" }, { eta: 1.2, g: 0, h: "Trail, flat" }, { eta: 1.2, g: 8, h: "Trail, 8% grade" }];
+    var th = $("scenTable").tHead;
+    th.innerHTML = "<tr><th>Pack</th>" + cols.map(function (c) { return "<th>" + c.h + "</th>"; }).join("") + "</tr>";
     var tb = $("scenTable").tBodies[0];
     tb.innerHTML = "";
     loadsLb.forEach(function (lb) {
@@ -283,6 +317,8 @@ M = 1.5W + 2(W+L)(L/W)&sup2; + &eta;(W+L)(1.5V&sup2; + 0.35VG)
     $(id).addEventListener("input", update);
     $(id).addEventListener("change", update);
   });
+  $("modeOutdoor").addEventListener("click", function () { setMode("outdoor"); });
+  $("modeTreadmill").addEventListener("click", function () { setMode("treadmill"); });
   update();
 })();
 </script>

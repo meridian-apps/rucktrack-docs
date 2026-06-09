@@ -85,9 +85,10 @@ M = 1.5W + 2(W+L)(L/W)² + η(W+L)(1.5V² + 0.35VG)
   <li><strong>Road</strong> — η = 1.00. Paved or hard-packed.</li>
   <li><strong>Gravel</strong> — η = 1.05. Packed gravel paths and well-maintained fire roads.</li>
   <li><strong>Trail</strong> — η = 1.20. Hiking trails, dirt, loose rock.</li>
-  <li><strong>Sand</strong> — η = 1.50. Soft sand, snow, deep mud.</li>
+  <li><strong>Sand</strong> — η = 1.50. Soft sand, deep mud.</li>
+  <li><strong>Snow</strong> — η = 2.50. Soft snow (the Soule &amp; Goldman 1972 coefficient). Trudging through deep powder genuinely costs about two and a half times the surface term of pavement, which is why winter rucks read so much higher.</li>
 </ul>
-<p>A 50 percent increase from Road to Sand for the same speed and load is a real number from the literature, not a rough estimate. Pick the terrain in Settings before you start, or change it mid-activity. The value at save time writes to the FIT file as the <code>terrain_factor</code> field.</p>
+<p>A 50 percent increase from Road to Sand, and 150 percent for soft snow, for the same speed and load: these are real numbers from the literature, not rough estimates. Pick the terrain in Settings before you start, or change it mid-activity. The value at save time writes to the FIT file as the <code>terrain_factor</code> field.</p>
 
 <h2 id="descent">The Santee descent correction</h2>
 <p>Vanilla Pandolf underestimates metabolic cost on negative grades — the equation goes mathematically silly when G is large and negative, sometimes returning a metabolic rate below resting. Santee et al. (2001) showed empirically that descent still costs at least the resting/maintenance term.</p>
