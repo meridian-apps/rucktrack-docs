@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Rucking Calorie Calculator (Pandolf Equation) — RuckTrack</title>
+<meta name="description" content="Free rucking calorie calculator using the U.S. Army Pandolf equation. Enter body weight, pack weight, speed, grade, and terrain to see calories per hour, loaded vs unloaded.">
+<link rel="canonical" href="https://meridian-apps.github.io/rucktrack-docs/calculator.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Rucking Calorie Calculator (Pandolf Equation)">
+<meta property="og:description" content="Enter body weight, pack weight, speed, grade, and terrain. See calories per hour for a loaded carry vs an unloaded walk, computed with the U.S. Army Pandolf equation.">
+<meta property="og:url" content="https://meridian-apps.github.io/rucktrack-docs/calculator.html">
+<meta property="og:image" content="https://meridian-apps.github.io/rucktrack-docs/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Rucking Calorie Calculator (Pandolf Equation)">
+<meta name="twitter:description" content="Calories per hour for a loaded carry vs an unloaded walk, computed with the U.S. Army Pandolf equation.">
+<meta name="twitter:image" content="https://meridian-apps.github.io/rucktrack-docs/og-image.png">
+<link rel="icon" type="image/png" href="icon.png">
+<link rel="stylesheet" href="style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Rucking Calorie Calculator",
+  "url": "https://meridian-apps.github.io/rucktrack-docs/calculator.html",
+  "applicationCategory": "HealthApplication",
+  "operatingSystem": "Any (web browser)",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "description": "Rucking calorie calculator based on the U.S. Army Pandolf load-carriage equation: body weight, pack weight, speed, grade, and terrain in; calories per hour out, loaded vs unloaded.",
+  "publisher": { "@type": "Organization", "name": "Meridian Apps" }
+}
+</script>
+<style>
+.calc { background: #fff; border: 1px solid #e2e8e2; border-radius: 12px; padding: 1.25rem; margin: 1.5rem 0; }
+.calc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem 1.2rem; }
+@media (max-width: 560px) { .calc-grid { grid-template-columns: 1fr; } }
+.calc label { display: block; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: #5a6b5a; margin-bottom: 0.3rem; }
+.calc .row { display: flex; gap: 0.5rem; }
+.calc input[type=number], .calc select { font: inherit; padding: 0.45rem 0.6rem; border: 1px solid #cfd8cf; border-radius: 8px; width: 100%; background: #fafcfa; }
+.calc input[type=number]:focus, .calc select:focus { outline: 2px solid var(--brand-glow); border-color: var(--brand-glow); }
+.calc .unit { flex: 0 0 5.2rem; }
+.calc-results { margin-top: 1.25rem; padding-top: 1.1rem; border-top: 2px solid var(--brand-glow); display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.8rem; text-align: center; }
+@media (max-width: 560px) { .calc-results { grid-template-columns: 1fr; } }
+.calc-results .num { font-size: 1.9rem; font-weight: 700; color: var(--brand); line-height: 1.1; }
+.calc-results .num.bonus { color: var(--brand-glow); }
+.calc-results .lbl { font-size: 0.75rem; letter-spacing: 0.05em; text-transform: uppercase; color: #5a6b5a; margin-top: 0.25rem; }
+.calc-sub { text-align: center; font-size: 0.85rem; color: #5a6b5a; margin-top: 0.7rem; }
+.calc-note { font-size: 0.8rem; color: #8a6d1f; background: #fdf6e3; border-radius: 8px; padding: 0.45rem 0.7rem; margin-top: 0.8rem; display: none; }
+table.scen { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.92rem; }
+table.scen th, table.scen td { padding: 0.5rem 0.6rem; border-bottom: 1px solid #e2e8e2; text-align: right; }
+table.scen th:first-child, table.scen td:first-child { text-align: left; }
+table.scen thead th { font-size: 0.78rem; letter-spacing: 0.04em; text-transform: uppercase; color: #5a6b5a; }
+table.scen td b { color: var(--brand); }
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <div class="topnav-inner">
+    <a class="topnav-brand" href="./"><img src="icon.png" alt=""> RuckTrack</a>
+    <div class="topnav-links">
+      <a href="features.html">Features</a>
+      <a href="calorie-math.html">Calorie Math</a>
+      <a href="calculator.html">Calculator</a>
+      <a href="devices.html">Devices</a>
+      <a href="faq.html">FAQ</a>
+      <a href="support.html">Support</a>
+      <a class="topnav-cta" href="https://apps.garmin.com/apps/201e9e43-f33c-4b56-b3f5-8a67184e3d1c">Get RuckTrack</a>
+    </div>
+  </div>
+</nav>
+
+<div class="wrap-narrow content-page">
+<div class="page-head">
+<p class="back"><a href="./">&larr; Home</a></p>
+<h1>Rucking calorie calculator</h1>
+<p class="updated">The Pandolf load-carriage equation, in your browser. The same math RuckTrack runs on your watch.</p>
+</div>
+
+<p>Most watches estimate calories from heart rate, which means a 35 lb ruck and an unloaded walk can come back with nearly the same number. This calculator uses the U.S. Army's Pandolf equation instead: body weight, pack weight, speed, grade, and terrain in; metabolic cost out. The loaded and unloaded columns update together so you can see exactly what your pack is worth.</p>
+
+<div class="calc" id="calc">
+  <div class="calc-grid">
+    <div>
+      <label for="bw">Body weight</label>
+      <div class="row">
+        <input type="number" id="bw" value="180" min="60" max="660" step="1">
+        <select id="bwu" class="unit"><option value="lb" selected>lb</option><option value="kg">kg</option></select>
+      </div>
+    </div>
+    <div>
+      <label for="pw">Pack weight</label>
+      <div class="row">
+        <input type="number" id="pw" value="35" min="0" max="220" step="1">
+        <select id="pwu" class="unit"><option value="lb" selected>lb</option><option value="kg">kg</option></select>
+      </div>
+    </div>
+    <div>
+      <label for="sp">Speed</label>
+      <div class="row">
+        <input type="number" id="sp" value="3.0" min="0.5" max="6" step="0.1">
+        <select id="spu" class="unit"><option value="mph" selected>mph</option><option value="kmh">km/h</option></select>
+      </div>
+    </div>
+    <div>
+      <label for="gr">Grade (%) <span style="font-weight:400;text-transform:none">&nbsp;0 = flat, 8 = solid hill</span></label>
+      <input type="number" id="gr" value="0" min="-20" max="20" step="1">
+    </div>
+    <div style="grid-column: 1 / -1;">
+      <label for="tr">Terrain</label>
+      <select id="tr">
+        <option value="1.0">Paved road (&eta; = 1.0)</option>
+        <option value="1.05">Gravel / dirt road (&eta; = 1.05)</option>
+        <option value="1.2" selected>Trail (&eta; = 1.2)</option>
+        <option value="1.5">Sand (&eta; = 1.5)</option>
+        <option value="2.5">Soft snow (&eta; = 2.5)</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="calc-results">
+    <div><div class="num" id="rLoaded">&ndash;</div><div class="lbl">kcal/hr with pack</div></div>
+    <div><div class="num" id="rUnloaded" style="color:#5a6b5a">&ndash;</div><div class="lbl">kcal/hr without pack</div></div>
+    <div><div class="num bonus" id="rBonus">&ndash;</div><div class="lbl">pack bonus</div></div>
+  </div>
+  <div class="calc-sub" id="rSub"></div>
+  <div class="calc-note" id="rNote"></div>
+</div>
+
+<h2>What the pack is worth at different loads</h2>
+<p>This table is generated live by the same function as the calculator, using your body weight, speed, and grade from above. The pattern worth knowing: the pack bonus scales with the load-to-body-weight ratio. Grade and terrain raise the total burn a lot, but they raise the loaded and unloaded numbers together, so the percentage moves slowly. A heavy pack on a lighter body is what pushes the bonus past 25 percent.</p>
+
+<table class="scen" id="scenTable">
+  <thead><tr><th>Pack</th><th>Paved road, flat</th><th>Trail, flat</th><th>Trail, 8% grade</th></tr></thead>
+  <tbody></tbody>
+</table>
+
+<h2>How it works</h2>
+<p>The calculator runs the original 1977 Pandolf form, exactly as RuckTrack does on the watch:</p>
+<div class="formula">
+M = 1.5W + 2(W+L)(L/W)&sup2; + &eta;(W+L)(1.5V&sup2; + 0.35VG)
+</div>
+<p><code>M</code> is metabolic rate in watts, <code>W</code> body weight in kg, <code>L</code> pack weight in kg, <code>V</code> speed in m/s, <code>G</code> grade in percent, and <code>&eta;</code> the terrain coefficient. Calories per hour are <code>M &times; 3600 / 4184</code>. Two guardrails carry over from the watch implementation: speed is capped at 2.5 m/s (5.6 mph) because the equation was validated for walking, and on descents the result is floored at the standing cost (the Santee correction) so a downhill never reads as free.</p>
+<p>The full write-up, including the terrain research, the descent correction, and how RuckTrack blends in heart rate when GPS drops, is on the <a href="calorie-math.html">calorie math page</a>.</p>
+
+<h2>Limits, stated plainly</h2>
+<ul>
+  <li>Pandolf models <strong>walking under load</strong>. It is not valid for running, and this calculator clamps speed accordingly.</li>
+  <li>It is a population-level model from military load-carriage research. Your physiology will vary around it.</li>
+  <li>Steady inputs only. On a real ruck your speed and grade change constantly, which is why RuckTrack integrates the equation second by second on the watch instead of using one average.</li>
+  <li>This page is an estimate tool, not medical or training advice.</li>
+</ul>
+
+<h2>The same math, on your wrist</h2>
+<p>RuckTrack runs this equation live during your ruck: speed from GPS, grade from a rolling barometric buffer, terrain from a picker, and an unloaded baseline computed in parallel so the pack bonus shows on the watch and lands in Garmin Connect. It is $2.99 on the Connect IQ store, with no account and no subscription.</p>
+<p><a class="btn btn-primary" href="https://apps.garmin.com/apps/201e9e43-f33c-4b56-b3f5-8a67184e3d1c">Get RuckTrack for Garmin</a></p>
+
+<p class="back" style="margin-top: 2rem;"><a href="./">&larr; Home</a></p>
+
+</div>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-cols">
+      <div>
+        <h5>RuckTrack</h5>
+        <p>A Garmin Connect IQ activity app for rucking, weighted vests, loaded hikes, and treadmill walks. Built by Meridian Apps.</p>
+      </div>
+      <div>
+        <h5>Product</h5>
+        <ul>
+          <li><a href="features.html">Features</a></li>
+          <li><a href="calorie-math.html">Calorie Math</a></li>
+          <li><a href="calculator.html">Calorie Calculator</a></li>
+          <li><a href="devices.html">Supported devices</a></li>
+          <li><a href="https://apps.garmin.com/apps/201e9e43-f33c-4b56-b3f5-8a67184e3d1c">Connect IQ Store</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Help</h5>
+        <ul>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="support.html">Support &amp; contact</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+          <li><a href="mailto:garmin.lanam+rucktrack@gmail.com">Email Meridian</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 Meridian. RuckTrack is an independent app. Garmin and Connect IQ are trademarks of Garmin Ltd.
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+  var LB = 0.45359237, MPH = 0.44704, KCAL = 3600 / 4184, CAP = 2.5;
+
+  // Mirrors RuckSession.computePandolfWatts on the watch, including the
+  // 2.5 m/s walking cap and the Santee descent floor.
+  function pandolfWatts(w, l, v, g, eta) {
+    var vc = Math.min(v, CAP);
+    var m = 1.5 * w
+          + 2 * (w + l) * (l / w) * (l / w)
+          + eta * (w + l) * (1.5 * vc * vc + 0.35 * vc * g);
+    var floor = 1.5 * w;
+    if (g < 0 && m < floor) { m = floor; }
+    return m;
+  }
+
+  function $(id) { return document.getElementById(id); }
+  function val(id) { return parseFloat($(id).value); }
+
+  function readInputs() {
+    var bw = val("bw"), pw = val("pw"), sp = val("sp"), gr = val("gr");
+    if (!(bw > 0) || !(pw >= 0) || !(sp > 0) || isNaN(gr)) { return null; }
+    return {
+      wKg: $("bwu").value === "lb" ? bw * LB : bw,
+      lKg: $("pwu").value === "lb" ? pw * LB : pw,
+      vMs: $("spu").value === "mph" ? sp * MPH : sp / 3.6,
+      g: gr,
+      eta: parseFloat($("tr").value),
+      spRaw: sp, spUnit: $("spu").value
+    };
+  }
+
+  function update() {
+    var i = readInputs();
+    if (!i) { return; }
+    var mL = pandolfWatts(i.wKg, i.lKg, i.vMs, i.g, i.eta);
+    var mU = pandolfWatts(i.wKg, 0, i.vMs, i.g, i.eta);
+    var hL = mL * KCAL, hU = mU * KCAL;
+    var bonusK = hL - hU;
+    var bonusP = hU > 0 ? (bonusK / hU) * 100 : 0;
+
+    $("rLoaded").textContent = Math.round(hL);
+    $("rUnloaded").textContent = Math.round(hU);
+    $("rBonus").textContent = "+" + Math.round(bonusK) + " (+" + bonusP.toFixed(0) + "%)";
+
+    var vEff = Math.min(i.vMs, CAP);
+    var perMile = hL / (vEff / MPH);
+    var perKm = hL / (vEff * 3.6);
+    $("rSub").textContent = Math.round(perMile) + " kcal per mile / " + Math.round(perKm) +
+      " kcal per km with the pack. Metabolic rate " + Math.round(mL) + " W loaded, " + Math.round(mU) + " W unloaded.";
+
+    var notes = [];
+    if (i.vMs > CAP) {
+      notes.push("Speed capped at 2.5 m/s (5.6 mph / 9.0 km/h): Pandolf is validated for walking, so faster inputs are clamped, exactly as on the watch.");
+    }
+    var rawL = 1.5 * i.wKg + 2 * (i.wKg + i.lKg) * (i.lKg / i.wKg) * (i.lKg / i.wKg)
+             + i.eta * (i.wKg + i.lKg) * (1.5 * Math.min(i.vMs, CAP) * Math.min(i.vMs, CAP) + 0.35 * Math.min(i.vMs, CAP) * i.g);
+    if (i.g < 0 && rawL < 1.5 * i.wKg) {
+      notes.push("Descent floor active: the raw equation went below standing cost, so the result is floored at 1.5W (the Santee correction).");
+    }
+    $("rNote").style.display = notes.length ? "block" : "none";
+    $("rNote").textContent = notes.join(" ");
+
+    renderTable(i);
+  }
+
+  function renderTable(i) {
+    var loadsLb = [20, 35, 45];
+    var cols = [{ eta: 1.0, g: 0 }, { eta: 1.2, g: 0 }, { eta: 1.2, g: 8 }];
+    var tb = $("scenTable").tBodies[0];
+    tb.innerHTML = "";
+    loadsLb.forEach(function (lb) {
+      var lKg = lb * LB;
+      var tr = document.createElement("tr");
+      var cells = ["<td>" + lb + " lb</td>"];
+      cols.forEach(function (c) {
+        var lo = pandolfWatts(i.wKg, lKg, i.vMs, c.g, c.eta) * KCAL;
+        var un = pandolfWatts(i.wKg, 0, i.vMs, c.g, c.eta) * KCAL;
+        var pct = un > 0 ? ((lo - un) / un) * 100 : 0;
+        cells.push("<td><b>" + Math.round(lo) + "</b> kcal/hr (+" + pct.toFixed(0) + "%)</td>");
+      });
+      tr.innerHTML = cells.join("");
+      tb.appendChild(tr);
+    });
+  }
+
+  ["bw", "bwu", "pw", "pwu", "sp", "spu", "gr", "tr"].forEach(function (id) {
+    $(id).addEventListener("input", update);
+    $(id).addEventListener("change", update);
+  });
+  update();
+})();
+</script>
+
+</body>
+</html>
