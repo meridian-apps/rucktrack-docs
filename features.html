@@ -57,13 +57,14 @@
   <li><a href="#connect">In Garmin Connect</a></li>
   <li><a href="#glance">Widget loop glance</a></li>
   <li><a href="#history">History view</a></li>
+  <li><a href="#stats">Stats: lifetime, streaks, and bests</a></li>
   <li><a href="#privacy">Privacy and data</a></li>
 </ol>
 </div>
 
 <h2 id="start">Starting a ruck</h2>
 <p>The start screen shows your pack weight, GPS quality, time, battery, and heart rate. Hit START and you're recording. No menu trees, no GPS-lock gate.</p>
-<p>QuickLoad lets you pick from saved weight presets or enter a one-time custom load. Presets remember their own unit (lb or kg), so you can keep "Daily 30 lb" and "Long ruck 20 kg" side by side without picking a global unit first. Repeat sessions are one tap.</p>
+<p>QuickLoad lets you pick your last-used weight, a saved preset, or a one-time custom load. Presets are managed right in the load menu: Add Preset saves the weight you dial in and applies it on the spot, Delete Preset removes one, and each preset remembers its own unit (lb or kg), so you can keep "Daily 30 lb" and "Long ruck 20 kg" side by side. In the weight picker, quick presses accelerate the steps, so a big load takes seconds to dial in rather than dozens of clicks.</p>
 
 <h2 id="live">The six live screens</h2>
 <p>Every one of the six screens is drawn by hand, down to the pixel: a custom number typeface, color-coded zone arcs, a pulsing heart, faded dividers, nothing stock. It's the most polished watch experience of any rucking app on Connect IQ. Swipe or use UP/DOWN to move between pages.</p>
@@ -114,7 +115,7 @@
   <li><strong>Lifetime totals</strong> — your cumulative ruck count, total distance, total time, total calories, and total tonnage carried. Updates to include the session you just saved, so the numbers climb every time.</li>
   <li><strong>Stats Guide</strong> — pointer to Garmin Connect's Stats → Connect IQ section, where the load-aware fields live. Discoverability matters; this page closes the loop.</li>
 </ol>
-<p>Press the Action button on any summary page to open <strong>Calorie Details</strong> — a scrolling list of every input that fed the math: total burn, calories without pack, pack bonus in kcal and percent, your watch's native estimate, plus pack weight, terrain, body weight, and the speed and grade ranges used.</p>
+<p>Press the Action button on any summary page for a short menu: <strong>Calorie Details</strong>, <strong>Stats</strong>, and About. Calorie Details is a scrolling list of every input that fed the math: total burn, calories without pack, pack bonus in kcal and percent, your watch's native estimate, plus pack weight, terrain, body weight, and the speed and grade ranges used. Stats is the lifetime dashboard described below.</p>
 
 <h2 id="connect">In Garmin Connect</h2>
 <p>Outdoor sessions classify as <strong>Rucking</strong> (Garmin's FIT subsport 124, fleet-wide). Activity names auto-populate as "Ruck 35 lb" or "Treadmill Ruck 16 kg" so the activity list reads at a glance — no manual rename.</p>
@@ -134,7 +135,15 @@
 <p>Scroll to RuckTrack in your watch's widget loop to see your last saved session: distance, duration, pack weight, and calories. One-glance check; no need to open the app.</p>
 
 <h2 id="history">History view</h2>
-<p>From the start-screen Settings menu, pick History to see your last 10 saved rucks: date, distance, duration, pack weight, and calories per card. Newest first. Read-only — for editing or deleting an activity, use Garmin Connect.</p>
+<p>From the start-screen Settings menu, pick History to see your last 30 saved rucks: date, distance, duration, pack weight, and calories per card. Newest first. Read-only; for editing or deleting an activity, use Garmin Connect.</p>
+
+<h2 id="stats">Stats: lifetime, streaks, and bests</h2>
+<p>Open <strong>Settings &rarr; Stats</strong> (or pick Stats from the post-save action menu) for a scrolling dashboard of everything you've saved on this watch: lifetime distance, time, calories, and tonnage, your weekly streak, and your best pace at three pack-weight tiers.</p>
+<ul>
+  <li><strong>Streak.</strong> Consecutive calendar weeks (Monday start) with at least one saved ruck. One ruck a week keeps it alive; BEST STREAK keeps your longest run, and THIS WEEK counts the current week's saves.</li>
+  <li><strong>Best pace.</strong> Your fastest average pace at three pack-weight tiers: 10-19, 20-29, and 30+ lb (5-9, 10-14, and 15+ kg for metric), shown in your weight unit. Sessions need at least 1 km and a pack at or above the lowest tier to qualify; tiers without a qualifying ruck show "--".</li>
+</ul>
+<p>Updating from an older version? The streak and best paces are reconstructed from your History list at first launch, so the screen doesn't start from zero. Like History and the lifetime totals, Stats lives on the watch itself; see the <a href="faq.html#new-watch">FAQ</a> for what moves to a new device.</p>
 
 <h2 id="privacy">Privacy and data</h2>
 <p>Every setting, preset, and history entry stays on your watch. Meridian operates no servers, runs no analytics, has no companion phone app, and uses no third-party SDKs. The full <a href="privacy.html">privacy policy</a> covers what gets stored locally and how Garmin Connect handles the FIT file.</p>
