@@ -52,6 +52,7 @@
   <li><a href="#descent">The Santee descent correction</a></li>
   <li><a href="#hybrid">Hybrid fallback to heart rate</a></li>
   <li><a href="#auto">Treadmill Auto mode</a></li>
+  <li><a href="#vs-garmin">RuckTrack vs your watch's headline number</a></li>
   <li><a href="#totals">What ends up on the watch and in Connect</a></li>
   <li><a href="#references">References</a></li>
 </ol>
@@ -113,22 +114,28 @@ kcal = native × (1 + α × L/W)        <em>where α = 0.4</em>
 <p>The watch's HR-based estimate gets scaled up by a multiplier that grows with the load-to-body-weight ratio. The α = 0.4 coefficient was tuned to land between published HR-only estimates (which we know undercount loaded work) and Pandolf at typical treadmill speeds. It's not as physically grounded as Pandolf, but it's the right shape for the use case: you set the pack weight, walk, and let the watch's HR sensor do the per-second tracking. Good for instructor-led classes where the machine's incline changes constantly.</p>
 <p>Indoor Manual mode runs the full Pandolf equation with user-set V (belt speed) and G (incline), no fallback. If you can read the belt speed off the machine, Manual gives you the same load-aware accuracy as outdoor.</p>
 
+<h2 id="vs-garmin">RuckTrack vs your watch's headline number</h2>
+<p>The big calorie number at the top of an activity in Garmin Connect comes from Garmin's heart-rate model. RuckTrack's number comes from the mechanical work your body did. Because those are two different methods, they rarely match exactly, and the gap runs in both directions depending on conditions.</p>
+<p><strong>On a treadmill, RuckTrack often reads higher than the headline.</strong> Heart-rate calorie models read low when your heart rate is low. A fit walker at an easy pace barely lifts their HR, so the watch infers a modest burn even though the work of walking that speed and incline hasn't changed. RuckTrack bills that work directly, so its number comes in above the heart-rate one. This is the case people sometimes mistake for the app over-counting; it isn't, as the cross-check below shows.</p>
+<p><strong>On flat outdoor ground, RuckTrack can read a little lower.</strong> With no grade and an easy pace the work term is small, and the heart-rate estimate can sit slightly above the work-based one.</p>
+<p>When the two disagree on a treadmill, the answer is checkable, because the belt speed and incline are exact. The standard exercise-physiology formula for treadmill walking is the <a href="#references">ACSM walking equation</a>:</p>
+<div class="formula">
+VO₂ (ml/kg/min) = 3.5 + 0.1·S + 1.8·S·G
+</div>
+<p>with S the speed in m/min and G the grade as a fraction. For a 74 kg walker at 3.0 mph (1.34 m/s) on a 3 percent incline, it predicts about 338 kcal/hr. RuckTrack's unloaded number for that same walk is about 358 kcal/hr, within roughly six percent of the independent standard. The takeaway isn't that RuckTrack is more accurate everywhere. It's that on a treadmill, where the inputs are exact, the work-based number matches published physiology, and a heart-rate number well below it is the one leaving the grade and the load out.</p>
+<p>The figure that stays steady no matter which way the headline gap runs is the <strong>Pack Calorie Bonus</strong>: RuckTrack's loaded total minus its own unloaded total. It's never measured against Garmin's number, so it's the clean read on what the weight itself cost you.</p>
+
 <h2 id="totals">What ends up on the watch and in Connect</h2>
 <p>The watch's Calories screen shows the live total, the average burn rate (kcal/hr), and the pack bonus percent. Calorie Details (Action button on any summary page) shows every input: total burn, the unloaded counterfactual, pack bonus in kcal and percent, the watch's native HR estimate for comparison, body weight, pack weight, terrain, and the speed and grade ranges seen during the session.</p>
 <p>In Garmin Connect, the load-aware fields live under <strong>Stats → Connect IQ</strong>: Pack Weight, Ruck Calories, Calories Without Pack, Pack Calorie Bonus, Burn Rate, Terrain Surface, and (where applicable) Treadmill Mode and Incline. The headline calorie at the top of the activity stays as Garmin's native HR-only number, because Garmin doesn't let third-party apps write that field. The two numbers being different is the point — the headline answers "how hard did your body work?" while the Connect IQ section answers "how much of that came from the pack?"</p>
 <p>Per-second grade and metabolic rate also write to the FIT record stream as developer fields. Open any saved ruck on Garmin Connect and you'll see them charted as time series alongside the native pace, HR, and elevation graphs.</p>
-
-<h2>References</h2>
-<ul>
-  <li>Pandolf KB, Givoni B, Goldman RF. "Predicting energy expenditure with loads while standing or walking very slowly." <em>Journal of Applied Physiology</em>, 1977.</li>
-  <li>Santee WR, Allison WF, Blanchard LA, Small MG. "A proposed model for load carriage on sloped terrain." <em>Aviation, Space, and Environmental Medicine</em>, 2001.</li>
-</ul>
 
 <h2 id="references">References</h2>
 <ul>
   <li>Pandolf, K.B., Givoni, B., &amp; Goldman, R.F. (1977). Predicting energy expenditure with loads while standing or walking very slowly. <em>Journal of Applied Physiology</em>, 43(4), 577&ndash;581. <a href="https://doi.org/10.1152/jappl.1977.43.4.577" rel="noopener">doi:10.1152/jappl.1977.43.4.577</a></li>
   <li>Soule, R.G., &amp; Goldman, R.F. (1972). Terrain coefficients for energy cost prediction. <em>Journal of Applied Physiology</em>, 32(5), 706&ndash;708. <a href="https://doi.org/10.1152/jappl.1972.32.5.706" rel="noopener">doi:10.1152/jappl.1972.32.5.706</a></li>
   <li>Santee, W.R., Blanchard, L.A., Small, M.G., Gonzalez, J.A., Matthew, W.T., &amp; Speckman, K.L. (2001). <em>The impact of load and grade on energy expenditure during load carriage, part II: field study.</em> U.S. Army Research Institute of Environmental Medicine (USARIEM).</li>
+  <li>American College of Sports Medicine (2021). <em>ACSM's Guidelines for Exercise Testing and Prescription</em> (11th ed.), metabolic equations for walking. Walking VO&#8322; = 3.5 + 0.1&middot;S + 1.8&middot;S&middot;G, with S in m/min.</li>
 </ul>
 
 <p class="back" style="margin-top: 2rem;"><a href="./">&larr; Home</a></p>
