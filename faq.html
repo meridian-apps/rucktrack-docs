@@ -72,6 +72,14 @@
     },
     {
       "@type": "Question",
+      "name": "Why does my pack weight show as -- in the Garmin Connect activity?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "RuckTrack saves your ruck as a Rucking-type activity so Garmin Connect categorizes it correctly. Garmin Connect shows that activity type with its own built-in pack-weight field near the top, and that field is reserved for Garmin's first-party rucking profile, which exists only on a few watches (fēnix 8, Forerunner 970, tactix 8). Garmin doesn't allow third-party apps like RuckTrack to write into it, so on other watches it stays blank. Your pack weight isn't lost: it's in the activity name itself (for example Ruck 20 kg), and it's saved under the activity's Stats → Connect IQ section as the Pack Weight field, alongside the load-aware calories and terrain. The empty top field is Garmin's; your weight is recorded in the Connect IQ section and the activity title."
+      }
+    },
+    {
+      "@type": "Question",
       "name": "Can I use RuckTrack indoors or on a treadmill?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -159,7 +167,7 @@
 <div class="page-head">
 <p class="back"><a href="./">&larr; Home</a></p>
 <h1>Frequently Asked Questions</h1>
-<p class="updated">Last updated: 2026-06-13</p>
+<p class="updated">Last updated: 2026-06-22</p>
 </div>
 
 <div class="toc">
@@ -170,6 +178,7 @@
   <li><a href="#devices">Which Garmin watches does RuckTrack work on?</a></li>
   <li><a href="#calories">How are calories calculated?</a></li>
   <li><a href="#connect-stats">Why are my RuckTrack calories different from the headline number in Garmin Connect?</a></li>
+  <li><a href="#pack-weight">Why does my pack weight show as "--" in the Garmin Connect activity?</a></li>
   <li><a href="#treadmill">Can I use RuckTrack indoors or on a treadmill?</a></li>
   <li><a href="#data">Does RuckTrack collect any data?</a></li>
   <li><a href="#new-watch">Will my history and lifetime totals move to a new watch?</a></li>
@@ -214,7 +223,11 @@
 <p>Both numbers are correct for what they measure. The headline answers "how hard did your body work?" The Connect IQ section answers "how much of that came from the pack?"</p>
 <p>The gap can run either way, and it's normal. On a treadmill RuckTrack often reads <em>higher</em> than the headline, because heart-rate calorie models read low when your heart rate is low: a fit walker at an easy pace gets a modest headline number even though the work of the walk is the same, and RuckTrack counts that work. On a flat, easy outdoor walk it can go the other way and read slightly lower. If you want to check it, on a treadmill the speed and incline are exact, and RuckTrack's number lands within a few percent of the standard exercise-physiology walking equation. The <a href="calorie-math.html#vs-garmin">Calorie Math page</a> has the worked example.</p>
 
-<h2 id="treadmill">7. Can I use RuckTrack indoors or on a treadmill?</h2>
+<h2 id="pack-weight">7. Why does my pack weight show as "--" in the Garmin Connect activity?</h2>
+<p>RuckTrack saves your ruck as a Rucking-type activity so Garmin Connect categorizes it correctly (not as a generic hike). Garmin Connect shows that activity type with its own built-in pack-weight field near the top, and that field is reserved for Garmin's first-party rucking profile, which exists only on a few watches (f&#x113;nix 8, Forerunner 970, tactix 8). Garmin doesn't let third-party apps like RuckTrack write into it, so on every other watch it stays blank ("--").</p>
+<p>Your pack weight isn't lost. It's in the activity name itself (for example "Ruck 20 kg"), and it's saved under the activity's <strong>Stats &rarr; Connect IQ</strong> section as the <strong>Pack Weight</strong> field, alongside the load-aware calories and terrain. The empty field at the top belongs to Garmin; your weight is recorded in the Connect IQ section and the activity title.</p>
+
+<h2 id="treadmill">8. Can I use RuckTrack indoors or on a treadmill?</h2>
 <p>Yes. There are two indoor modes, selectable from the Settings menu before you start a session:</p>
 <ul>
   <li><strong>Auto.</strong> Uses your watch's heart rate to estimate calories, scaled up by the pack weight you've set. No ongoing input required. Good for varied-incline workouts and instructor-led classes.</li>
@@ -222,25 +235,25 @@
 </ul>
 <p>In both indoor modes, GPS is disabled and the Effort page (vertical speed, elevation gain) is hidden because they aren't meaningful indoors.</p>
 
-<h2 id="data">8. Does RuckTrack collect any data?</h2>
+<h2 id="data">9. Does RuckTrack collect any data?</h2>
 <p>No. Every setting, preset, and history entry stays on your watch. Meridian operates no servers, runs no analytics, has no companion phone app, and uses no third-party SDKs. Full details on the <a href="privacy.html">Privacy page</a>.</p>
 
-<h2 id="new-watch">9. Will my history and lifetime totals move to a new watch?</h2>
+<h2 id="new-watch">10. Will my history and lifetime totals move to a new watch?</h2>
 <p>No. RuckTrack's History list and Stats screen (lifetime totals, weekly streak, personal bests) are stored on the watch itself, so a new watch or a fresh reinstall starts those counters from zero. There's no account or cloud copy to restore them from.</p>
 <p>Your saved rucks aren't lost, though. Each session syncs to Garmin Connect as a normal activity, with the load-aware fields under <strong>Stats &rarr; Connect IQ</strong>, so your training history lives there regardless of which watch recorded it. It's specifically RuckTrack's on-watch History list and Stats screen that are per-device.</p>
 
-<h2 id="streaks">10. How do the weekly streak and best-pace tiers work?</h2>
+<h2 id="streaks">11. How do the weekly streak and best-pace tiers work?</h2>
 <p>The Stats screen (<strong>Settings &rarr; Stats</strong>, or the post-save action menu) tracks three things beyond lifetime totals. The <strong>weekly streak</strong> counts consecutive calendar weeks (Monday start) with at least one saved ruck: one ruck a week keeps it alive, and BEST STREAK records your longest run. THIS WEEK shows how many rucks you've saved in the current week.</p>
 <p><strong>Best pace</strong> is tracked at three pack-weight tiers (10-19, 20-29, and 30+ lb, or 5-9, 10-14, and 15+ kg, shown in your weight unit). A session needs at least 1 km of distance and a pack at or above the lowest tier to set one; shorter or lighter rucks show "--" for that tier until a qualifying session lands.</p>
 <p>Updating from an older version? The streak and best paces are reconstructed from your History list at first launch, so they don't start from zero.</p>
 
-<h2 id="mid-activity">11. How do I change pack weight mid-activity?</h2>
+<h2 id="mid-activity">12. How do I change pack weight mid-activity?</h2>
 <p>From the live screen, long-press <strong>UP</strong> to open the activity Settings menu without pausing. (On touch-only watches without a reliable long-press, hit the Action button to pause and pick <strong>Settings</strong> from the pause menu.) Tap <strong>Pack</strong>, set the new weight, and confirm. The change applies forward to the rest of the session. Past calorie integration is not retroactively recomputed.</p>
 
-<h2 id="auto-lap">12. What is Auto Lap?</h2>
+<h2 id="auto-lap">13. What is Auto Lap?</h2>
 <p>Auto Lap fires a lap marker at every 1 mile (or 1 km, based on your distance unit) of covered distance. Each lap triggers a short vibration and shows a 3-second on-screen summary, then returns to the live screen. The lap page (page 4) shows current-lap pace, distance, and time. Toggle Auto Lap on or off in the activity Settings menu. If you record a manual lap (Back button), the next auto-lap marker advances by one full unit from that point, so you won't get a double-lap.</p>
 
-<h2 id="dashes">13. Why does a metric show "--" early in an activity?</h2>
+<h2 id="dashes">14. Why does a metric show "--" early in an activity?</h2>
 <p>RuckTrack shows "--" instead of zero whenever a value isn't trustworthy yet. Common cases:</p>
 <ul>
   <li><strong>Pace</strong> shows "--" until your speed is above 0.2 m/s and a GPS fix is available.</li>
@@ -249,7 +262,7 @@
 </ul>
 <p>This is intentional. Rendering "0" would read as "the metric is broken" rather than "data is still warming up."</p>
 
-<h2 id="refund">14. How do I request a refund?</h2>
+<h2 id="refund">15. How do I request a refund?</h2>
 <p>Garmin permits returns of paid Connect IQ apps (commonly reported as a 48-hour window). The mechanism is typically to uninstall the app from your watch shortly after purchase; Garmin then reverses the charge automatically. If you have trouble, contact <a href="https://support.garmin.com/">Garmin Support</a> through the Connect IQ Store. Meridian doesn't process payments and has no access to your purchase.</p>
 
 <p>Have a question that isn't here? <a href="support.html">Get in touch</a>.</p>
