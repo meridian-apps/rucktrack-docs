@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Does Your Garmin Count Pack Weight? Run This Test — RuckTrack</title>
+<meta name="description" content="Garmin's calorie number barely changes when you add a 45 lb pack. A two-walk test you can run yourself, the 1977 Army equation that fixes it, and real data from a 1,000 ft climb.">
+<link rel="canonical" href="https://meridian-apps.github.io/rucktrack-docs/garmin-ruck-calories.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Does Your Garmin Count Pack Weight? Run This Test">
+<meta property="og:description" content="Garmin's calorie number barely changes when you add a 45 lb pack. A test you can run yourself, and the load-carriage equation that fixes it.">
+<meta property="og:url" content="https://meridian-apps.github.io/rucktrack-docs/garmin-ruck-calories.html">
+<meta property="og:image" content="https://meridian-apps.github.io/rucktrack-docs/assets/garmin-vs-rucktrack-calories-climb.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Does Your Garmin Count Pack Weight? Run This Test">
+<meta name="twitter:description" content="Garmin's calorie number barely changes when you add a 45 lb pack. A test you can run yourself, and the load-carriage equation that fixes it.">
+<meta name="twitter:image" content="https://meridian-apps.github.io/rucktrack-docs/assets/garmin-vs-rucktrack-calories-climb.png">
+<link rel="icon" type="image/png" href="icon.png">
+<link rel="stylesheet" href="style.css">
+<style>
+table.scen { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.92rem; }
+table.scen th, table.scen td { padding: 0.5rem 0.6rem; border-bottom: 1px solid #e2e8e2; text-align: right; }
+table.scen th:first-child, table.scen td:first-child { text-align: left; }
+table.scen thead th { font-size: 0.78rem; letter-spacing: 0.04em; text-transform: uppercase; color: #5a6b5a; }
+table.scen td b { color: var(--brand); }
+figure { margin: 1.5rem 0; }
+figure img { border: 1px solid var(--paper-edge); border-radius: 8px; }
+figure.phone img { max-width: 380px; margin: 0 auto; }
+figcaption { font-size: 0.85rem; color: var(--ink-mute); margin-top: 0.5rem; text-align: center; }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Does your Garmin count your pack weight? Run this test.",
+  "description": "Garmin's calorie number barely changes when you add a 45 lb pack. A two-walk test you can run yourself, the 1977 Army load-carriage equation that fixes it, and real second-by-second data from a 1,000 ft climb.",
+  "image": "https://meridian-apps.github.io/rucktrack-docs/assets/garmin-vs-rucktrack-calories-climb.png",
+  "url": "https://meridian-apps.github.io/rucktrack-docs/garmin-ruck-calories.html",
+  "datePublished": "2026-07-02",
+  "author": { "@type": "Organization", "name": "Meridian Apps" },
+  "publisher": { "@type": "Organization", "name": "Meridian Apps" }
+}
+</script>
+</head>
+<body>
+
+<nav class="topnav">
+  <div class="topnav-inner">
+    <a class="topnav-brand" href="./"><img src="icon.png" alt=""> RuckTrack</a>
+    <div class="topnav-links">
+      <a href="features.html">Features</a>
+      <a href="calorie-math.html">Calorie Math</a>
+      <a href="calculator.html">Calculator</a>
+      <a href="devices.html">Devices</a>
+      <a href="faq.html">FAQ</a>
+      <a href="support.html">Support</a>
+      <a class="topnav-cta" href="https://apps.garmin.com/apps/201e9e43-f33c-4b56-b3f5-8a67184e3d1c">Get RuckTrack</a>
+    </div>
+  </div>
+</nav>
+
+<div class="wrap-narrow content-page">
+<div class="page-head">
+<p class="back"><a href="./">&larr; Home</a></p>
+<h1>Does your Garmin count your pack weight?</h1>
+<p class="updated">The two-walk test that shows what heart-rate calorie models miss, and the 1977 Army equation that fixes it.</p>
+</div>
+
+<div class="toc">
+<ol>
+  <li><a href="#test">An experiment you can run this weekend</a></li>
+  <li><a href="#why">Why the watch can't see your pack</a></li>
+  <li><a href="#pandolf">The Army solved this in 1977</a></li>
+  <li><a href="#how-big">How big the difference actually is</a></li>
+  <li><a href="#climb">Watching it happen, second by second</a></li>
+  <li><a href="#app">How RuckTrack does this on the watch</a></li>
+  <li><a href="#limits">Where the model stops</a></li>
+  <li><a href="#check">Check my math</a></li>
+</ol>
+</div>
+
+<h2 id="test">1. An experiment you can run this weekend</h2>
+<p>Walk your usual loop with your pack loaded. Save it, open Garmin Connect, and note the <strong>Total Calories</strong>. A day or two later, walk the same loop at the same pace with the pack empty. Compare the two numbers.</p>
+<p>They will be nearly identical.</p>
+<p>I ran exactly this test on July 1st: same route, same pace, once with 45 lb and once with an empty pack. Garmin's calorie rate came back at 321 kcal per hour loaded and 323 kcal per hour unloaded. Forty-five pounds on my back changed the watch's answer by less than one percent. Independent testing of Garmin's built-in Rucking profile on a tactix 8 (DesFit) found the same thing: loaded and unloaded totals came out nearly identical.</p>
+<p>Your legs know those two walks were not the same. Here's why the watch doesn't.</p>
+
+<h2 id="why">2. Why the watch can't see your pack</h2>
+<p>Garmin's calorie number is estimated from heart rate. That model is good at what it's built for: steady, unloaded cardio, where heart rate tracks effort closely.</p>
+<p>Load breaks the assumption. Carrying weight raises your heart rate a little, but nowhere near in proportion to the extra mechanical work, and the fitter you are, the less it rises. Heart rate can't see weight, only strain.</p>
+<p>The newest watches with a built-in Rucking profile do ask for your pack weight. But that number is stored with the activity, not fed into the calorie estimate, which stays heart-rate driven. It's a number you wrote down, not a number in the math.</p>
+
+<h2 id="pandolf">3. The Army solved this in 1977</h2>
+<p>Estimating the energy cost of loaded walking is an old, well-studied military problem. In 1977, researchers at the U.S. Army Research Institute of Environmental Medicine published the Pandolf equation, built from measured oxygen consumption of soldiers under load. It computes metabolic cost from exactly the things heart rate can't see: your body weight, the load, your speed, the grade, and the surface.</p>
+<p>In plain English, the equation adds up three costs: the cost of standing there (scales with body weight), the cost of carrying the load itself (grows with the square of the load-to-body ratio, which is why heavy packs punish disproportionately), and the cost of moving (speed squared, plus a speed-times-grade term for climbing, all multiplied by a terrain factor from Soule and Goldman's research: pavement 1.0, gravel 1.05, trail 1.2, sand 1.5, snow 2.5). A later correction by Santee handles descents, where the simple equation underestimates.</p>
+<p>Worked example, my body weight (165 lb) at 3 mph on a 10% trail grade: unloaded, the equation gives 667 kcal/hr. With 45 lb it gives 835 kcal/hr. The pack adds 168 kcal/hr. That's the work heart rate barely registers. The full equation, term by term, is on the <a href="calorie-math.html">calorie math page</a>.</p>
+
+<h2 id="how-big">4. How big the difference actually is</h2>
+<p>Honest answer: it depends on load and terrain, and light loads on flat ground are genuinely small. All numbers below are from the equation above (165 lb body, 3 mph); you can reproduce every row in the <a href="calculator.html">calculator</a>.</p>
+<table class="scen">
+<thead><tr><th>Scenario</th><th>Unloaded</th><th>Loaded</th><th>Pack bonus</th></tr></thead>
+<tbody>
+<tr><td>20 lb, flat road</td><td>270 kcal/hr</td><td>293</td><td><b>+23 (+9%)</b></td></tr>
+<tr><td>20 lb, 5% trail</td><td>486</td><td>535</td><td><b>+49 (+10%)</b></td></tr>
+<tr><td>35 lb, flat road</td><td>270</td><td>314</td><td><b>+44 (+16%)</b></td></tr>
+<tr><td>35 lb, 5% trail</td><td>486</td><td>575</td><td><b>+90 (+18%)</b></td></tr>
+<tr><td>45 lb, 5% trail</td><td>486</td><td>604</td><td><b>+118 (+24%)</b></td></tr>
+<tr><td>45 lb, 10% trail</td><td>667</td><td>835</td><td><b>+168 (+25%)</b></td></tr>
+</tbody>
+</table>
+<p>So: a 20 lb vest on pavement is a roughly 9% effect. A 45 lb ruck on a steep trail is a roughly 25% effect, and it keeps growing with weight and grade. If someone quotes you one flat percentage, they're hand-waving.</p>
+
+<h2 id="climb">5. Watching it happen, second by second</h2>
+<p>I carried 45 lb up a local hill: 50 minutes, about 1,000 ft of climbing. My watch recorded two calorie counts at once: Garmin's standard heart-rate number, and RuckTrack's load-aware count, with the model's no-pack baseline alongside.</p>
+<figure>
+<img src="assets/garmin-vs-rucktrack-calories-climb.png" alt="Three stacked charts of a 50-minute, 1,000 ft climb with a 45 lb pack: cumulative calories (RuckTrack 512, Garmin 423, no-pack baseline 411), calories per minute, and grade percent, all on a shared time axis." width="1440" height="1500">
+<figcaption>45 lb, 50 minutes, +1,000 ft. Top: cumulative calories. Middle: burn rate per minute. Bottom: grade.</figcaption>
+</figure>
+<p>Three things worth seeing in that picture. First, the pack added 101 calories of real work over the climb (RuckTrack loaded vs the same model unloaded). Garmin's heart-rate number moved 12 calories above the no-pack baseline: it caught about a tenth of the pack. Second, the middle panel shows where the gap opens: every steep pitch pushes the real burn rate up while the heart-rate estimate barely moves, and on the one flat stretch near minute 40 the two lines converge again. The gap is the grade times the load, exactly as the equation says. Third, and this is the part I'd check if I were you: Garmin's total (423) and RuckTrack's own no-pack estimate (411) agree within 3%. Two completely different methods, heart rate and work-based math, give the same answer for the walk itself. They only disagree about the pack. That's what tells you the difference is the load, not a model with its thumb on the scale.</p>
+<p>It's not just my watch. A RuckTrack user in Italy sent me this after an hour on a treadmill at 12% incline carrying a 15 kg (33 lb) pack, about 2,200 ft of simulated climb. Garmin's total: 324 calories. It scored the entire hour as four minutes of moderate intensity, because his heart rate barely rose. RuckTrack counted 854, with the pack's share, 138 calories, stated separately. For that workload, the standard exercise-physiology treadmill equation (ACSM) lands within a few percent of RuckTrack's number.</p>
+<figure class="phone">
+<img src="assets/connect-iq-stats-treadmill.jpg" alt="Garmin Connect stats screen for a treadmill rucking activity: Garmin Total Calories 324, and in the Connect IQ section Ruck Calories 854, Calories Without Pack 716, Pack Calorie Bonus 138, at 12% incline with a 15 kg pack." width="900" height="1806" loading="lazy">
+<figcaption>A user's Garmin Connect stats: Garmin's Total (324) at the top, RuckTrack's fields (854) under Connect IQ. His circles.</figcaption>
+</figure>
+
+<h2 id="app">6. How RuckTrack does this on the watch</h2>
+<p>RuckTrack runs the Pandolf equation live, once per second, using GPS speed, barometric grade, your profile body weight, the pack weight you set, and a terrain you pick. It integrates the result into a running total, and it computes the unloaded version in parallel, so at the end you get a <strong>Pack Calorie Bonus</strong>: the calories that were the pack's fault, stated separately instead of buried in one number. When you stop moving or slow below walking pace, it falls back to the watch's own heart-rate estimate so breaks still count. Everything is saved into the activity: six fields under <strong>Stats &rarr; Connect IQ</strong> in Garmin Connect, plus a per-second metabolic rate chart.</p>
+
+<h2 id="limits">7. Where the model stops</h2>
+<p>A few honest limits. The equation is validated for walking, so RuckTrack caps the speed input at 2.5 m/s; it is not a running model. It needs your real body weight from your Garmin profile, so set it. On steep descents the model floors at standing cost, which means downhill with a load it reads lower than Garmin's number, not higher. And Garmin does not let third-party apps replace the headline calorie number at the top of an activity, so Garmin's estimate stays on top and RuckTrack's numbers live in the Connect IQ section below it. One more: on flat, unloaded ground the two approaches roughly agree, as they should. This model earns its keep when you add weight and grade, and the table above is the honest size of that effect.</p>
+
+<h2 id="check">8. Check my math</h2>
+<p>The full equation, terms, and references are on the <a href="calorie-math.html">calorie math page</a>. The <a href="calculator.html">calculator</a> runs the exact code the watch runs; put in your numbers and check mine. And if you want the second-by-second version on your own wrist, <a href="https://apps.garmin.com/apps/201e9e43-f33c-4b56-b3f5-8a67184e3d1c">RuckTrack is on the Connect IQ store</a>.</p>
+
+<p class="back" style="margin-top: 2rem;"><a href="./">&larr; Home</a></p>
+</div>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-cols">
+      <div>
+        <h5>RuckTrack</h5>
+        <p>A Garmin Connect IQ activity app for rucking, weighted vests, loaded hikes, and treadmill walks. Built by Meridian Apps.</p>
+      </div>
+      <div>
+        <h5>Product</h5>
+        <ul>
+          <li><a href="features.html">Features</a></li>
+          <li><a href="calorie-math.html">Calorie Math</a></li>
+          <li><a href="calculator.html">Calorie Calculator</a></li>
+          <li><a href="devices.html">Supported devices</a></li>
+          <li><a href="https://apps.garmin.com/apps/201e9e43-f33c-4b56-b3f5-8a67184e3d1c">Connect IQ Store</a></li>
+          <li><a href="https://meridian-apps.github.io/packcal-docs/">PackCal (data field)</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Help</h5>
+        <ul>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="support.html">Support &amp; contact</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+          <li><a href="mailto:garmin.lanam+rucktrack@gmail.com">Email Meridian</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 Meridian. RuckTrack is an independent app. Garmin and Connect IQ are trademarks of Garmin Ltd.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
