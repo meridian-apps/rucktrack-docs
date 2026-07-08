@@ -136,6 +136,14 @@
     },
     {
       "@type": "Question",
+      "name": "What is Auto Pause?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Auto Pause automatically pauses your recording when you stop moving and resumes it when you start again, so a wait at a crosswalk or stoplight does not skew your pace or moving time. Turn it on in the activity Settings menu, before you start or mid-ruck. It is off by default on purpose: rucking tradition tracks total time under load, including rest stops, so moving-time is opt-in. Auto Pause is outdoor only (it uses GPS speed). When a stop pauses the recording, the live screen shows an AUTO PAUSED banner; press Start at any time to take manual control."
+      }
+    },
+    {
+      "@type": "Question",
       "name": "Why does a metric show -- early in an activity?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -202,6 +210,7 @@
   <li><a href="#streaks">How do the weekly streak and best-pace tiers work?</a></li>
   <li><a href="#mid-activity">How do I change pack weight mid-activity?</a></li>
   <li><a href="#auto-lap">What is Auto Lap?</a></li>
+  <li><a href="#auto-pause">What is Auto Pause?</a></li>
   <li><a href="#dashes">Why does a metric show "--" early in an activity?</a></li>
   <li><a href="#customize">Can I add navigation, reorder the screens, or use another data field (like Stryd)?</a></li>
   <li><a href="#refund">How do I request a refund?</a></li>
@@ -276,7 +285,11 @@
 <h2 id="auto-lap">14. What is Auto Lap?</h2>
 <p>Auto Lap fires a lap marker at every 1 mile (or 1 km, based on your distance unit) of covered distance. Each lap triggers a short vibration and shows a 3-second on-screen summary, then returns to the live screen. The lap page (page 4) shows current-lap pace, distance, and time. Toggle Auto Lap on or off in the activity Settings menu. If you record a manual lap (Back button), the next auto-lap marker advances by one full unit from that point, so you won't get a double-lap.</p>
 
-<h2 id="dashes">15. Why does a metric show "--" early in an activity?</h2>
+<h2 id="auto-pause">15. What is Auto Pause?</h2>
+<p><strong>Auto Pause</strong> automatically pauses your recording when you stop moving and resumes when you start again, so a wait at a crosswalk or stoplight doesn't skew your pace or moving time. Turn it on in the activity Settings menu (before you start, or mid-ruck).</p>
+<p>It is <strong>off by default</strong> on purpose: rucking tradition tracks total time under load, including rest stops, so moving-time is opt-in. Auto Pause is <strong>outdoor only</strong> (it needs GPS speed). When a stop pauses the recording, the live screen shows an <strong>AUTO PAUSED</strong> banner; press <strong>Start</strong> anytime to take manual control.</p>
+
+<h2 id="dashes">16. Why does a metric show "--" early in an activity?</h2>
 <p>RuckTrack shows "--" instead of zero whenever a value isn't trustworthy yet. Common cases:</p>
 <ul>
   <li><strong>Pace</strong> shows "--" until your speed is above 0.2 m/s and a GPS fix is available.</li>
@@ -285,11 +298,11 @@
 </ul>
 <p>This is intentional. Rendering "0" would read as "the metric is broken" rather than "data is still warming up."</p>
 
-<h2 id="customize">16. Can I add navigation, reorder the screens, or use another data field (like Stryd)?</h2>
+<h2 id="customize">17. Can I add navigation, reorder the screens, or use another data field (like Stryd)?</h2>
 <p>No. RuckTrack is a Connect IQ <strong>Device App</strong>, which means it runs as its own self-contained activity with custom-drawn screens (the HR zone arc, the pack-calorie breakdown, the post-ruck summary pages). That's what makes those screens possible, but Garmin's platform doesn't let a Device App add native navigation, reorder its screens the way a native activity profile can, or host other Connect IQ data fields (Stryd's power field, for example).</p>
 <p>If you want RuckTrack's load-aware calories <em>alongside</em> any of those, the answer is <strong>PackCal</strong>, our companion data field. It packages the same Pandolf load-aware calorie model as a data field you add to a native walk-type activity (Ruck, Walk, or Hike), so it runs together with Garmin's native navigation and any other data fields on that activity. PackCal is a separate app on the <a href="https://apps.garmin.com/apps/809c953d-9547-49d3-9949-c27ad3a5c218">Connect IQ Store</a>, available on supported watches.</p>
 
-<h2 id="refund">17. How do I request a refund?</h2>
+<h2 id="refund">18. How do I request a refund?</h2>
 <p>Garmin permits returns of paid Connect IQ apps (commonly reported as a 48-hour window). The mechanism is typically to uninstall the app from your watch shortly after purchase; Garmin then reverses the charge automatically. If you have trouble, contact <a href="https://support.garmin.com/">Garmin Support</a> through the Connect IQ Store. Meridian doesn't process payments and has no access to your purchase.</p>
 
 <p>Have a question that isn't here? <a href="support.html">Get in touch</a>.</p>
