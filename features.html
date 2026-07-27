@@ -52,6 +52,7 @@
   <li><a href="#treadmill">Indoor and treadmill modes</a></li>
   <li><a href="#mid">Mid-activity controls</a></li>
   <li><a href="#laps">Auto Lap and manual laps</a></li>
+  <li><a href="#auto-pause">Auto Pause</a></li>
   <li><a href="#sound">Sound cues</a></li>
   <li><a href="#summary">Post-save summary</a></li>
   <li><a href="#connect">In Garmin Connect</a></li>
@@ -71,13 +72,13 @@
 <ol>
   <li><strong>Overview</strong> — every key number on one screen: distance, heart rate, time, average pace, calories, and ascent in a single grid, so you can read the whole ruck without swiping. Added in v2.6.</li>
   <li><strong>Primary</strong> — distance (hero), time and total calories below, and a live HR zone arc gauge along the bottom.</li>
-  <li><strong>Effort</strong> — current pace (hero), elevation gain and vertical speed with up/down arrows, and overall average pace.</li>
+  <li><strong>Effort</strong> — current pace (hero), elevation gain and vertical speed with up/down arrows, and overall average pace. In treadmill Manual it becomes a Pace page: current pace and speed against your set incline, plus average pace.</li>
   <li><strong>Calories</strong> — total burn (hero), average burn rate and the calories from your pack, a separate "+N% vs no pack" line, and the pack and terrain at the bottom.</li>
   <li><strong>Lap</strong> — current lap pace (hero), lap distance and lap time, and the overall elapsed timer.</li>
   <li><strong>HR zones</strong> — current heart rate (hero), zone label, and a circular zone gauge with a pulsating heart icon.</li>
   <li><strong>Clock</strong> — current time with seconds, today's date, and a battery indicator that turns red when low.</li>
 </ol>
-<p>Treadmill modes drop the Effort page because vertical speed and elevation aren't meaningful indoors. Six pages in treadmill, seven outdoors.</p>
+<p>Treadmill <strong>Auto</strong> drops the Effort page, since vertical speed and elevation aren't meaningful indoors and its pace would be raw wrist-pedometer noise. Six pages there, seven outdoors and seven in treadmill Manual, where that slot becomes the Pace page.</p>
 
 <h2 id="calories">Load-aware calories</h2>
 <p>This is the wedge. Generic profiles like Walk and Hike don't know your pack weight, so they under-credit a loaded carry by 10 to 20 percent per the published research. RuckTrack uses the Pandolf load-carriage equation to compute calories from body weight, pack weight, walking speed, terrain grade, and surface type. The numbers reflect what your body actually did.</p>
@@ -89,9 +90,9 @@
 <p>Treadmill mode handles the case where GPS won't help you and Garmin's HR-only profiles ignore your pack. Two indoor recording modes, picked at the start:</p>
 <ul>
   <li><strong>Auto.</strong> Uses your watch's heart-rate-based calorie estimate, scaled up by the pack weight you've set. No incline or belt-speed input required. Good for varied-incline workouts and instructor-led classes where the machine settings change constantly.</li>
-  <li><strong>Manual.</strong> Runs the full Pandolf calculation using an incline (0 to 15 percent) and belt speed (mph or km/h) you enter. Good for steady-state treadmill walks where you can read the belt speed off the machine.</li>
+  <li><strong>Manual.</strong> Runs the full Pandolf calculation using an incline (0 to 15 percent) and a speed source you pick at setup: the belt speed (mph or km/h) you enter, or the live pace from a paired foot pod such as a Stryd. Belt speed suits steady-state walks you can read off the machine; a foot pod suits intervals, where a typed speed goes stale the moment the belt changes. If the pod isn't reading, the app quietly uses your entered belt speed, so turning the option on without a pod never makes a session worse. See <a href="faq.html#foot-pod">the foot pod FAQ</a>.</li>
 </ul>
-<p>In both indoor modes, GPS is disabled and the Effort page is hidden. Sessions save as Indoor Walk in Garmin Connect (Garmin's only indoor-walk subsport), and the pack-aware fields write the same way as outdoor sessions.</p>
+<p>In both indoor modes GPS is disabled and elevation stats are hidden. Treadmill Auto also hides the Effort page; Manual keeps that slot as a Pace page. Sessions save as Indoor Walk in Garmin Connect (Garmin's only indoor-walk subsport), and the pack-aware fields write the same way as outdoor sessions.</p>
 
 <h2 id="mid">Mid-activity controls</h2>
 <p>Pack weight, terrain, incline, and belt speed can all change during a session without pausing the timer. Long-press UP on any live screen to open the Settings menu, pick the value, confirm. The Pandolf model picks up the new values on the next 1-second tick. Past calorie integration is not retroactively recomputed.</p>
@@ -101,6 +102,11 @@
 <p>Auto Lap fires a lap marker every 1 mile (or 1 km, based on your distance unit). Each lap triggers a short haptic and a 3-second lap-summary view showing the lap's distance, time, and pace, then returns to the live screen. Manual laps fire the same haptic and summary on the Back button.</p>
 <p>If you record a manual lap before the next auto-lap marker, the auto-lap counter advances one full unit from that point. You don't get a double-lap at the next mile mark.</p>
 <p>Auto Lap is on by default. Toggle it in Settings, before or during an activity.</p>
+
+<h2 id="auto-pause">Auto Pause</h2>
+<p>The recording can pause itself when you stop and resume when you move again, so a wait at a crosswalk or a light doesn't drag down your pace and moving time.</p>
+<p><strong>Off by default</strong>, deliberately. Rucking convention is to record total elapsed time, time under load including rest stops, so nobody gets silently switched to a moving-time basis by an update. Turn it on in Settings before or during an activity. It is outdoor only, since the detection needs GPS speed, and the toggle is hidden in treadmill modes.</p>
+<p>The behaviour is intentionally lopsided: <strong>reluctant to pause, eager to resume.</strong> Pausing wants you genuinely stopped rather than just slow, and stopped for several seconds. Resuming happens on the first clear sign of movement, and your walking cadence counts as movement, so losing GPS in a tunnel or under heavy tree cover cannot strand a ruck in the paused state. That is the failure worth designing around: a session that pauses itself and never resumes quietly loses the rest of your ruck, which is worse than never pausing at all. An <strong>AUTO PAUSED</strong> banner keeps the state visible, and START always takes back manual control.</p>
 
 <h2 id="sound">Sound cues</h2>
 <p>Short tones fire at start, pause, resume, save, and discard. Same audio rhythm as Garmin's built-in activity profiles, so the app feels native to the recording flow you already know. Silent on watches without a speaker.</p>
