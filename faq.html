@@ -35,7 +35,7 @@
       "name": "What's the difference between RuckTrack and RuckTrack (KiezelPay)?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Same app, same price. The difference is the payment system and the trial. Both ship from the same codebase. Same 86 supported devices, same calorie math, same screens, same FIT fields. A feature shipped in one ships in both. Why two listings exist: Garmin Pay works well in most markets but has friction in some regions where it isn't supported, and Garmin Pay doesn't support trials for third-party Connect IQ apps. KiezelPay covers both gaps. Having both listings lets RuckTrack reach buyers in either situation. If you're choosing fresh: the KiezelPay version lets you try the app for 7 days before committing."
+        "text": "Same app, same price. The difference is the payment system and the trial. RuckTrack uses Garmin Pay, the standard Connect IQ Store payment system. $2.99 USD, no trial, instant install after purchase. Store listing. RuckTrack (KiezelPay) uses KiezelPay, a third-party payment system Garmin permits for Connect IQ apps. $2.99 USD with a 7-day free trial. Store listing. Both ship from the same codebase. Same 86 supported devices, same calorie math, same screens, same FIT fields. A feature shipped in one ships in both. Why two listings exist: Garmin Pay works well in most markets but has friction in some regions where it isn't supported, and Garmin Pay doesn't support trials for third-party Connect IQ apps. KiezelPay covers both gaps. Having both listings lets RuckTrack reach buyers in either situation. If you're choosing fresh: the KiezelPay version lets you try the app for 7 days before committing."
       }
     },
     {
@@ -67,7 +67,7 @@
       "name": "Why are my RuckTrack calories different from the headline number in Garmin Connect?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Two different calculations, two different questions: Both numbers are correct for what they measure. The headline answers \"how hard did your body work?\" The Connect IQ section answers \"how much of that came from the pack?\" The gap can run either way, and it's normal. On a treadmill RuckTrack often reads higher than the headline, because heart-rate calorie models read low when your heart rate is low: a fit walker at an easy pace gets a modest headline number even though the work of the walk is the same, and RuckTrack counts that work. On a flat, easy outdoor walk it can go the other way and read slightly lower. If you want to check it, on a treadmill the speed and incline are exact, and RuckTrack's number lands within a few percent of the standard exercise-physiology walking equation. The Calorie Math page has the worked example, and Does your Garmin count your pack weight? shows the whole thing second by second on a real 45 lb climb."
+        "text": "Two different calculations, two different questions: The big calorie number at the top of an activity in Garmin Connect (the Total Calories line) is Garmin's own heart-rate-based estimate. It doesn't know you were carrying a load. When comparing, use Total, not Active: RuckTrack's numbers include resting burn, so Total is the matching line. RuckTrack's load-aware numbers live under the activity's Stats → Connect IQ section. You'll see fields like Ruck Calories (your total), Calories Without Pack (the counterfactual), and Pack Calorie Bonus (the difference), along with terrain and burn rate. Both numbers are correct for what they measure. The headline answers \"how hard did your body work?\" The Connect IQ section answers \"how much of that came from the pack?\" The gap can run either way, and it's normal. On a treadmill RuckTrack often reads higher than the headline, because heart-rate calorie models read low when your heart rate is low: a fit walker at an easy pace gets a modest headline number even though the work of the walk is the same, and RuckTrack counts that work. On a flat, easy outdoor walk it can go the other way and read slightly lower. If you want to check it, on a treadmill the speed and incline are exact, and RuckTrack's number lands within a few percent of the standard exercise-physiology walking equation. The Calorie Math page has the worked example, and Does your Garmin count your pack weight? shows the whole thing second by second on a real 45 lb climb."
       }
     },
     {
@@ -83,7 +83,7 @@
       "name": "Can I use RuckTrack indoors or on a treadmill?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. There are two indoor modes, selectable from the Settings menu before you start a session: In both indoor modes, GPS is disabled and the elevation stats (vertical speed, elevation gain) are hidden because they aren't meaningful indoors. In Manual, a Pace screen shows your current pace, speed, and incline as you go."
+        "text": "Yes. There are two indoor modes, selectable from the Settings menu before you start a session: Auto. Uses your watch's heart rate to estimate calories, scaled up by the pack weight you've set. No ongoing input required. Good for varied-incline workouts and instructor-led classes. Manual. Runs the full Pandolf calculation using an incline you enter plus a speed source you choose: the belt speed you type in, or the live pace from a paired foot pod like Stryd. Good for steady-state or interval treadmill walks. In both indoor modes, GPS is disabled and the elevation stats (vertical speed, elevation gain) are hidden because they aren't meaningful indoors. In Manual, a Pace screen shows your current pace, speed, and incline as you go."
       }
     },
     {
@@ -131,7 +131,7 @@
       "name": "Why does a metric show \"--\" early in an activity?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "RuckTrack shows \"--\" instead of zero whenever a value isn't trustworthy yet. Common cases: This is intentional. Rendering \"0\" would read as \"the metric is broken\" rather than \"data is still warming up.\""
+        "text": "RuckTrack shows \"--\" instead of zero whenever a value isn't trustworthy yet. Common cases: Pace shows \"--\" until your speed is above 0.2 m/s and a GPS fix is available. Vertical Speed shows \"--\" for the first ~30 seconds while a rolling average warms up, and whenever altitude data is missing or appears to spike. Calories show \"--\" for the first few seconds while the model gets a usable speed and heart rate reading. This is intentional. Rendering \"0\" would read as \"the metric is broken\" rather than \"data is still warming up.\""
       }
     },
     {
@@ -155,7 +155,7 @@
       "name": "The app says it installed, but the button flips back to \"Install\". What now?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "That is usually a partial download on Garmin's side rather than a problem with the app. In the Connect IQ app on your phone, remove RuckTrack and then install it again from there, letting it finish syncing to the watch. Clearing the cache on its own often is not enough. Do this from the phone app rather than a computer: you do not need Garmin Express or any extra software to install a Connect IQ app, and that route tends to add steps without fixing the problem. Your purchase stays on your Garmin account, so reinstalling never charges you twice. If it still flips back after a clean reinstall, get in touch and mention what the watch does when you try to open it."
+        "text": "This is a known Connect IQ problem on Garmin's side rather than something specific to RuckTrack. Garmin has a support article for it and has acknowledged it on several watches, so if you are hitting it you are not doing anything wrong. Your purchase stays on your Garmin account throughout, and none of the steps below charge you again. Work through these in order. The first one alone fixes a lot of cases: Remove and reinstall from the Connect IQ app on your phone, and let it finish syncing to the watch. Clearing the cache on its own is usually not enough. Restart both the watch and the phone, then try again. A stuck transfer often clears only after both ends restart. Check for a pending watch software update and let it finish. A queued firmware update can block Connect IQ transfers over Bluetooth until it completes. On Android, check the Connect IQ app's permissions and grant it storage, contacts and location. This is the single most reported fix. Note it is the Connect IQ app, not Garmin Connect: they are separate apps with separate permissions. There is no equivalent on iPhone. Check free space and app slots on the watch itself, not the phone. Every watch has a limit on how many Connect IQ apps, data fields and watch faces it will hold, and when it is full an install can succeed on the phone and never land. Try Garmin Express on a Windows or Mac computer. The phone app is the easier route and worth trying first, but when it has failed repeatedly Express is the fallback people most often report success with. If none of that works, get in touch and tell me whether you are on iPhone or Android, and what the watch does when the install finishes: whether anything appears at all, or nothing happens on the watch."
       }
     },
     {
@@ -313,9 +313,19 @@
 <p>Yes, with one exception. The smallest Instinct watches, Instinct 3 Solar and Instinct E, run on a tight memory budget, so RuckTrack focuses on core tracking there and omits three review screens: lifetime Stats, History, and Calorie Details, plus the treadmill Pace page. Every tracking feature works, and your data still syncs to Garmin Connect, where your full history and per-session stats live anyway. Every other watch, including the Instinct 3 AMOLED, has all screens.</p>
 
 <h2 id="install-stuck">The app says it installed, but the button flips back to "Install". What now?</h2>
-<p>That is usually a partial download on Garmin's side rather than a problem with the app. In the <strong>Connect IQ app on your phone</strong>, remove RuckTrack and then install it again from there, letting it finish syncing to the watch. Clearing the cache on its own often is not enough. Do this from the phone app rather than a computer: you do not need Garmin Express or any extra software to install a Connect IQ app, and that route tends to add steps without fixing the problem. Your purchase stays on your Garmin account, so reinstalling never charges you twice.</p>
+<p>This is a known Connect IQ problem on Garmin's side rather than something specific to RuckTrack. Garmin has a support article for it and has acknowledged it on several watches, so if you are hitting it you are not doing anything wrong. Your purchase stays on your Garmin account throughout, and none of the steps below charge you again.</p>
 
-<p>If it still flips back after a clean reinstall, <a href="support.html">get in touch</a> and mention what the watch does when you try to open it.</p>
+<p>Work through these in order. The first one alone fixes a lot of cases:</p>
+<ol>
+  <li><strong>Remove and reinstall from the Connect IQ app on your phone</strong>, and let it finish syncing to the watch. Clearing the cache on its own is usually not enough.</li>
+  <li><strong>Restart both the watch and the phone</strong>, then try again. A stuck transfer often clears only after both ends restart.</li>
+  <li><strong>Check for a pending watch software update</strong> and let it finish. A queued firmware update can block Connect IQ transfers over Bluetooth until it completes.</li>
+  <li><strong>On Android, check the Connect IQ app's permissions</strong> and grant it storage, contacts and location. This is the single most reported fix. Note it is the <em>Connect IQ</em> app, not Garmin Connect: they are separate apps with separate permissions. There is no equivalent on iPhone.</li>
+  <li><strong>Check free space and app slots on the watch itself</strong>, not the phone. Every watch has a limit on how many Connect IQ apps, data fields and watch faces it will hold, and when it is full an install can succeed on the phone and never land.</li>
+  <li><strong>Try Garmin Express</strong> on a Windows or Mac computer. The phone app is the easier route and worth trying first, but when it has failed repeatedly Express is the fallback people most often report success with.</li>
+</ol>
+
+<p>If none of that works, <a href="support.html">get in touch</a> and tell me whether you are on iPhone or Android, and what the watch does when the install finishes: whether anything appears at all, or nothing happens on the watch.</p>
 
 <h2 id="refund">How do I request a refund?</h2>
 <p>Garmin permits returns of paid Connect IQ apps (commonly reported as a 48-hour window). The mechanism is typically to uninstall the app from your watch shortly after purchase; Garmin then reverses the charge automatically. If you have trouble, contact <a href="https://support.garmin.com/">Garmin Support</a> through the Connect IQ Store. Meridian doesn't process payments and has no access to your purchase.</p>
