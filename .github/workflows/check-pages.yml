@@ -1,8 +1,8 @@
 name: check-pages
 
-# The docs site had no CI at all, so three representations of the same content
-# (visible headings, the table of contents, the JSON-LD schema) drifted apart
-# unnoticed. Pages builds and serves whatever is committed, valid or not.
+# Calls the shared checker in meridian-apps.github.io so the docs family has one
+# copy, not one per site. See that repo's scripts/check-pages.py for what it
+# guards; running it against both corpora is what keeps it honest.
 on:
   push:
     branches: [main]
@@ -11,8 +11,4 @@ on:
 
 jobs:
   check:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Structural checks (stdlib only, no install step needed)
-        run: python3 scripts/check-pages.py
+    uses: meridian-apps/meridian-apps.github.io/.github/workflows/check-pages.yml@main
