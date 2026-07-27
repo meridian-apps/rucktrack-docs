@@ -120,6 +120,14 @@
     },
     {
       "@type": "Question",
+      "name": "Can I use a foot pod like Stryd?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Outdoors there is nothing to set up in RuckTrack at all: it uses whatever speed and distance your watch has already settled on, so if the watch is taking those from your pod, so is RuckTrack. Pair the pod in the watch's sensor settings and set Speed and Distance to Always. Treadmill Auto mode works the same way. Treadmill Manual mode is the one place you choose, because there you have typed in a belt speed and RuckTrack needs to know which number to believe. Setting up Manual asks for a speed source, Belt Speed or Foot Pod, and you can switch it later from Settings. Foot Pod is off by default. Turn it on and your live pace drives distance and the calorie math, which is what you want for intervals where the belt speed keeps changing. If the pod drops out or reads zero, RuckTrack falls back to your typed belt speed rather than stalling. The one thing that does not work is running the pod's own Connect IQ data field inside RuckTrack, Stryd's power field for example. That is a platform limit on Connect IQ apps rather than anything specific to RuckTrack, and it is a separate question from using the pod as a sensor, which works fine. See the screens and data fields question for the workaround."
+      }
+    },
+    {
+      "@type": "Question",
       "name": "How do I change pack weight mid-activity?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -139,7 +147,7 @@
       "name": "Can I add navigation, reorder the screens, or use another data field (like Stryd)?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. RuckTrack is a Connect IQ Device App, which means it runs as its own self-contained activity with custom-drawn screens (the HR zone arc, the pack-calorie breakdown, the post-ruck summary pages). That's what makes those screens possible, but Garmin's platform doesn't let a Device App add native navigation, reorder its screens the way a native activity profile can, or host other Connect IQ data fields (Stryd's power field, for example). If you want RuckTrack's load-aware calories alongside any of those, the answer is PackCal, our companion data field. It packages the same Pandolf load-aware calorie model as a data field you add to a native walk-type activity (Ruck, Walk, or Hike), so it runs together with Garmin's native navigation and any other data fields on that activity. PackCal is a separate app on the Connect IQ Store, available on supported watches."
+        "text": "No. RuckTrack is a Connect IQ Device App, which means it runs as its own self-contained activity with custom-drawn screens (the HR zone arc, the pack-calorie breakdown, the post-ruck summary pages). That's what makes those screens possible, but Garmin's platform doesn't let a Device App add native navigation, reorder its screens the way a native activity profile can, or host other Connect IQ data fields (Stryd's power field, for example). To be clear about Stryd specifically, since this is easy to misread: the pod itself does work with RuckTrack as a speed and distance sensor, on every mode. It is only Stryd's own data field, the one showing running power, that cannot run inside a Device App. See Can I use a foot pod like Stryd? for how to set the pod up. If you want RuckTrack's load-aware calories alongside any of those, the answer is PackCal, our companion data field. It packages the same Pandolf load-aware calorie model as a data field you add to a native walk-type activity (Ruck, Walk, or Hike), so it runs together with Garmin's native navigation and any other data fields on that activity. PackCal is a separate app on the Connect IQ Store, available on supported watches."
       }
     },
     {
@@ -214,6 +222,7 @@
 <h3>Using RuckTrack</h3>
 <ul>
   <li><a href="#treadmill">Can I use RuckTrack indoors or on a treadmill?</a></li>
+  <li><a href="#foot-pod">Can I use a foot pod like Stryd?</a></li>
   <li><a href="#mid-activity">How do I change pack weight mid-activity?</a></li>
   <li><a href="#streaks">How do the weekly streak and best-pace tiers work?</a></li>
   <li><a href="#new-watch">Will my history and lifetime totals move to a new watch?</a></li>
@@ -293,6 +302,11 @@
 <p><strong>Best pace</strong> is tracked at three pack-weight tiers (10-19, 20-29, and 30+ lb, or 5-9, 10-14, and 15+ kg, shown in your weight unit). A session needs at least 1 km of distance and a pack at or above the lowest tier to set one; shorter or lighter rucks show "--" for that tier until a qualifying session lands.</p>
 <p>Updating from an older version? The streak and best paces are reconstructed from your History list at first launch, so they don't start from zero.</p>
 
+<h2 id="foot-pod">Can I use a foot pod like Stryd?</h2>
+<p>Yes. Outdoors there is nothing to set up in RuckTrack at all: it uses whatever speed and distance your watch has already settled on, so if the watch is taking those from your pod, so is RuckTrack. Pair the pod in the watch's sensor settings and set <strong>Speed</strong> and <strong>Distance</strong> to <strong>Always</strong>. Treadmill <strong>Auto</strong> mode works the same way.</p>
+<p>Treadmill <strong>Manual</strong> mode is the one place you choose, because there you have typed in a belt speed and RuckTrack needs to know which number to believe. Setting up Manual asks for a speed source, <strong>Belt Speed</strong> or <strong>Foot Pod</strong>, and you can switch it later from Settings. Foot Pod is off by default. Turn it on and your live pace drives distance and the calorie math, which is what you want for intervals where the belt speed keeps changing. If the pod drops out or reads zero, RuckTrack falls back to your typed belt speed rather than stalling.</p>
+<p>The one thing that does not work is running the pod's own Connect IQ data field inside RuckTrack, Stryd's power field for example. That is a platform limit on Connect IQ apps rather than anything specific to RuckTrack, and it is a separate question from using the pod as a sensor, which works fine. See <a href="#customize">the screens and data fields question</a> for the workaround.</p>
+
 <h2 id="mid-activity">How do I change pack weight mid-activity?</h2>
 <p>From the live screen, long-press <strong>UP</strong> to open the activity Settings menu without pausing. (On touch-only watches without a reliable long-press, hit the Action button to pause and pick <strong>Settings</strong> from the pause menu.) Tap <strong>Pack</strong>, set the new weight, and confirm. The change applies forward to the rest of the session. Past calorie integration is not retroactively recomputed.</p>
 
@@ -307,6 +321,7 @@
 
 <h2 id="customize">Can I add navigation, reorder the screens, or use another data field (like Stryd)?</h2>
 <p>No. RuckTrack is a Connect IQ <strong>Device App</strong>, which means it runs as its own self-contained activity with custom-drawn screens (the HR zone arc, the pack-calorie breakdown, the post-ruck summary pages). That's what makes those screens possible, but Garmin's platform doesn't let a Device App add native navigation, reorder its screens the way a native activity profile can, or host other Connect IQ data fields (Stryd's power field, for example).</p>
+<p>To be clear about Stryd specifically, since this is easy to misread: the pod itself <em>does</em> work with RuckTrack as a speed and distance sensor, on every mode. It is only Stryd's own data field, the one showing running power, that cannot run inside a Device App. See <a href="#foot-pod">Can I use a foot pod like Stryd?</a> for how to set the pod up.</p>
 <p>If you want RuckTrack's load-aware calories <em>alongside</em> any of those, the answer is <strong>PackCal</strong>, our companion data field. It packages the same Pandolf load-aware calorie model as a data field you add to a native walk-type activity (Ruck, Walk, or Hike), so it runs together with Garmin's native navigation and any other data fields on that activity. PackCal is a separate app on the <a href="https://apps.garmin.com/apps/809c953d-9547-49d3-9949-c27ad3a5c218">Connect IQ Store</a>, available on supported watches.</p>
 
 <h2 id="screens-instinct">Are all screens available on every watch?</h2>
