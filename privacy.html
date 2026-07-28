@@ -4,16 +4,16 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Privacy Policy — RuckTrack</title>
-<meta name="description" content="RuckTrack privacy policy. No servers, no analytics, no third-party SDKs. All settings, presets, and activity data stay on your Garmin watch.">
+<meta name="description" content="RuckTrack privacy policy. No servers, no analytics, no Meridian account. Your settings and presets stay on your watch, and your activities sync through Garmin Connect like any other activity.">
 <link rel="canonical" href="https://meridian-apps.github.io/rucktrack-docs/privacy.html">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Privacy Policy — RuckTrack">
-<meta property="og:description" content="No servers, no analytics, no third-party SDKs. All settings, presets, and activity data stay on your Garmin watch.">
+<meta property="og:description" content="No servers, no analytics, no Meridian account. Your settings and presets stay on your watch, and your activities sync through Garmin Connect like any other activity.">
 <meta property="og:url" content="https://meridian-apps.github.io/rucktrack-docs/privacy.html">
 <meta property="og:image" content="https://meridian-apps.github.io/rucktrack-docs/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Privacy Policy — RuckTrack">
-<meta name="twitter:description" content="No servers, no analytics, no third-party SDKs. All settings, presets, and activity data stay on your Garmin watch.">
+<meta name="twitter:description" content="No servers, no analytics, no Meridian account. Your settings and presets stay on your watch, and your activities sync through Garmin Connect like any other activity.">
 <meta name="twitter:image" content="https://meridian-apps.github.io/rucktrack-docs/og-image.png">
 <link rel="icon" type="image/png" href="icon.png">
 <link rel="stylesheet" href="style.css">
@@ -23,7 +23,7 @@
   "@type": "WebPage",
   "name": "Privacy Policy — RuckTrack",
   "url": "https://meridian-apps.github.io/rucktrack-docs/privacy.html",
-  "description": "RuckTrack privacy policy. No servers, no analytics, no third-party SDKs. All settings, presets, and activity data stay on your Garmin watch.",
+  "description": "RuckTrack privacy policy. No servers, no analytics, no Meridian account. Your settings and presets stay on your watch, and your activities sync through Garmin Connect like any other activity.",
   "isPartOf": {
     "@type": "WebSite",
     "name": "RuckTrack",
@@ -62,7 +62,8 @@
 </div>
 
 <h2>Summary</h2>
-<p>RuckTrack does not collect, transmit, store on remote servers, or share any personal data. The app runs entirely on your Garmin watch. Meridian operates no servers, has no companion phone app, runs no analytics, and uses no third-party SDKs. Meridian has no access to any data from your device.</p>
+<p>RuckTrack runs on your Garmin watch. Meridian operates no servers, has no companion phone app, runs no analytics, and has no access to any data from your device.</p>
+<p>One exception applies to the <strong>RuckTrack (KiezelPay)</strong> version. That version includes KiezelPay's licensing library, which contacts KiezelPay's servers to check whether you have bought the app or are still inside the free trial. It is there to handle licensing, and it does not send your activity, location, or health data. Meridian receives nothing from it. For what KiezelPay itself handles, see <a href="https://kiezelpay.com/faq/">KiezelPay's own FAQ</a>. The <strong>Garmin Pay</strong> version of RuckTrack has no network permission at all and makes no requests.</p>
 
 <h2>What the app stores on your watch</h2>
 <p>RuckTrack stores the following in your watch's local app storage (Garmin's <code>Application.Storage</code> API):</p>
@@ -72,7 +73,7 @@
   <li>A rolling history of your most recent saved activities (up to 10 entries: distance, duration, calories, pack weight, ascent, average heart rate).</li>
   <li>A cumulative count of completed sessions.</li>
 </ul>
-<p>This data never leaves your watch through any path operated by Meridian.</p>
+<p>None of this is sent anywhere. It stays in your watch's app storage until you delete the app.</p>
 
 <h2>Sensor data during an activity</h2>
 <p>While recording a ruck, RuckTrack reads sensor data from your watch — heart rate, GPS position, altitude, motion — to compute and display live metrics. This data is written to the activity's standard FIT file, which is created and managed by Garmin's built-in activity recording system.</p>
