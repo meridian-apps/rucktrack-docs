@@ -39,7 +39,7 @@
 <div class="page-head">
 <p class="back"><a href="./">&larr; Home</a></p>
 <h1>Supported devices</h1>
-<p class="updated">86 Garmin watches as of v2.8.7</p>
+<p class="updated">86 Garmin watches as of v2.12.0</p>
 </div>
 
 <p>RuckTrack runs on Garmin watches running Connect IQ 5.0 or later, across AMOLED, 64-color MIP, and 1-bit monochrome displays. The list below is grouped by product family.</p>
@@ -168,7 +168,11 @@
 </div>
 
 <h2 style="margin-top: 3rem;">Display support</h2>
-<p>RuckTrack was designed AMOLED-first. The deep-black background, vibrant green dividers, colored zone arcs, and high-contrast numeric heroes all use the display's per-pixel light control. The MIP (64-color) and monochrome watches added in v2.4 can't render the photo-grade start screen, so on those displays it degrades gracefully to a clean flat layout, while the seven live screens, the numeric typeface, the charts, and every metric render the same. No watered-down build, just the right rendering for each display.</p>
+<p>RuckTrack was designed AMOLED-first. The deep-black background, vibrant green dividers, colored zone arcs, and high-contrast numeric heroes all use the display's per-pixel light control. The MIP (64-color) watches can't render the photo-grade start screen, so on those displays it degrades gracefully to a clean flat layout, while the live screens, the numeric typeface, the charts, and every metric render the same.</p>
+
+<p>MIP watches also open the live screens in a light theme, dark text on white, because a transflective display reflects sunlight instead of emitting its own light and reads better that way outdoors. If you prefer the dark look, switch it under Settings then Theme. AMOLED watches stay black, which is what keeps them safe from burn-in.</p>
+
+<p>The monochrome Instinct watches (Instinct 3 Solar, Instinct E) are the one place where the build genuinely differs, and it is worth being straight about it. They give an app roughly 128 KB to work with, a fraction of what the rest of the fleet allows, so the review screens are left out to keep recording solid: lifetime Stats, History, Calorie Details, the Settings entries for page visibility and the Overview grid, the What's New page, and the treadmill pace screen. Recording, calories, laps, auto-lap, the live pages and the full post-save summary all behave as they do everywhere else. Saved history holds 10 rucks there rather than 30, and the Overview grid keeps its shipped layout instead of being configurable.</p>
 
 <h2>Connect IQ version</h2>
 <p>RuckTrack builds against Connect IQ API 5.0. Most listed devices have firmware that supports newer Connect IQ features (action menus, in-place toggle items); a small number of older devices fall back to a 5.0-compatible code path automatically. You don't need to pick — the right path runs on the right device.</p>

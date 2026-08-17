@@ -39,7 +39,7 @@
 <div class="page-head">
 <p class="back"><a href="./">&larr; Home</a></p>
 <h1>Features</h1>
-<p class="updated">For RuckTrack v2.8.7</p>
+<p class="updated">For RuckTrack v2.12.0</p>
 </div>
 
 <p>RuckTrack is a Connect IQ Device App built specifically for rucking, weighted-vest walking, loaded hiking, and treadmill incline-walks. Everything below is in the version on the store today. Nothing here is planned or coming soon.</p>
@@ -48,6 +48,7 @@
 <ol>
   <li><a href="#start">Starting a ruck</a></li>
   <li><a href="#live">The seven live screens</a></li>
+  <li><a href="#theme">Light and dark theme</a></li>
   <li><a href="#calories">Load-aware calories</a></li>
   <li><a href="#treadmill">Indoor and treadmill modes</a></li>
   <li><a href="#mid">Mid-activity controls</a></li>
@@ -59,26 +60,32 @@
   <li><a href="#glance">Widget loop glance</a></li>
   <li><a href="#history">History view</a></li>
   <li><a href="#stats">Stats: lifetime, streaks, and bests</a></li>
+  <li><a href="#whats-new">What's New on the watch</a></li>
+  <li><a href="#instinct">On Instinct 3 Solar and Instinct E</a></li>
   <li><a href="#privacy">Privacy and data</a></li>
 </ol>
 </div>
 
 <h2 id="start">Starting a ruck</h2>
-<p>The start screen shows your pack weight, GPS quality, time, battery, and heart rate. Hit START and you're recording. No menu trees, no GPS-lock gate.</p>
+<p>The start screen shows your pack weight, terrain, GPS quality, and heart rate. Hit START and you're recording. No menu trees, no GPS-lock gate. Terrain sits right above the pack weight in the same grammar, so the two numbers the calorie model leans on are both in front of you before you set off, and you are less likely to start a trail ruck still set to Road.</p>
 <p>QuickLoad lets you pick your last-used weight, a saved preset, or a one-time custom load. Presets are managed right in the load menu: Add Preset saves the weight you dial in and applies it on the spot, Delete Preset removes one, and each preset remembers its own unit (lb or kg), so you can keep "Daily 30 lb" and "Long ruck 20 kg" side by side. In the weight picker, quick presses accelerate the steps, so a big load takes seconds to dial in rather than dozens of clicks.</p>
 
 <h2 id="live">The seven live screens</h2>
 <p>Every one of the seven screens is drawn by hand: a custom number typeface, color-coded zone arcs, a pulsing heart, faded dividers. It's the most polished watch experience of any rucking app on Connect IQ. On round watches, page titles and footers curve onto the bezel, and the heart-rate ring dims to spotlight the zone you're in. Swipe or use UP/DOWN to move between pages.</p>
 <ol>
-  <li><strong>Overview</strong> — every key number on one screen: distance, heart rate, time, average pace, calories, and ascent in a single grid, so you can read the whole ruck without swiping. From 2.10.0 all six cells are yours to choose, with three one-tap presets, set in Settings under Overview and changeable mid-ruck. The list runs to seventeen metrics, including Current Speed and Avg Speed in kph or mph from 2.11.0 if you would rather not read pace. See <a href="faq.html#overview-metrics">the FAQ</a> for the steps.</li>
   <li><strong>Primary</strong> — distance (hero), time and total calories below, and a live HR zone arc gauge along the bottom.</li>
   <li><strong>Effort</strong> — current pace (hero), elevation gain and vertical speed with up/down arrows, and overall average pace. In treadmill Manual it becomes a Pace page: current pace and speed against your set incline, plus average pace.</li>
   <li><strong>Calories</strong> — total burn (hero), average burn rate and the calories from your pack, a separate "+N% vs no pack" line, and the pack and terrain at the bottom.</li>
   <li><strong>Lap</strong> — current lap pace (hero), lap distance and lap time, and the overall elapsed timer.</li>
   <li><strong>HR zones</strong> — current heart rate (hero), zone label, and a circular zone gauge with a pulsating heart icon.</li>
   <li><strong>Clock</strong> — current time with seconds, today's date, and a battery indicator that turns red when low.</li>
+  <li><strong>Overview</strong> — every key number on one screen: distance, heart rate, time, average pace, calories, and ascent in a single grid, so you can read the whole ruck without swiping. From 2.10.0 all six cells are yours to choose, with three one-tap presets, set in Settings under Overview and changeable mid-ruck. The list runs to seventeen metrics, including Current Speed and Avg Speed in kph or mph from 2.11.0 if you would rather not read pace. See <a href="faq.html#overview-metrics">the FAQ</a> for the steps.</li>
 </ol>
-<p>Treadmill <strong>Auto</strong> drops the Effort page, since vertical speed and elevation aren't meaningful indoors and its pace would be raw wrist-pedometer noise. That leaves six pages indoors on Auto. Treadmill <strong>Manual</strong> keeps all seven, with a Pace page in Effort's place.</p>
+<p>Treadmill <strong>Auto</strong> drops the Effort page, since vertical speed and elevation aren't meaningful indoors and its pace would be raw wrist-pedometer noise, which leaves six indoors. Treadmill <strong>Manual</strong> keeps all seven, with a Pace page in Effort's place.</p>
+<p><strong>You can also switch pages off.</strong> From 2.12.0, Settings carries a Pages entry listing every screen the current mode offers, each with its own switch. Turn off the ones you never swipe to and they leave the rotation, so a two-page ruck is a perfectly reasonable setup. The parent row tells you how many are showing, the running order itself never changes, and the last page standing refuses to switch off so you can't end up with a blank activity. Pages is in the mid-activity Settings menu as well, which is where it tends to earn its keep, since the page you keep swiping past is usually the one you want gone right then. The change applies on the next frame, without pausing.</p>
+
+<h2 id="theme">Light and dark theme</h2>
+<p>Watches with a transflective MIP display (the fēnix 7 and fēnix 8 Solar families, Enduro 3, Forerunner 255 and 955, and the rest of the 64-color fleet) open the live screens in a light theme, dark text on white. Those displays reflect ambient light instead of emitting their own, so a light page is easier to read in bright sun, which is where most rucks happen. If you prefer the dark look, Settings carries a Theme entry on those watches, before or during an activity. AMOLED watches stay dark and don't get the setting, because a mostly-white screen on an emissive panel costs battery and risks burn-in.</p>
 
 <h2 id="calories">Load-aware calories</h2>
 <p>Generic profiles like Walk and Hike don't know your pack weight, so they under-credit a loaded carry by 10 to 20 percent per the published research. RuckTrack uses the Pandolf load-carriage equation to compute calories from body weight, pack weight, walking speed, terrain grade, and surface type. The numbers reflect what your body actually did.</p>
@@ -92,7 +99,7 @@
   <li><strong>Auto.</strong> Uses your watch's heart-rate-based calorie estimate, scaled up by the pack weight you've set. No incline or belt-speed input required. Good for varied-incline workouts and instructor-led classes where the machine settings change constantly.</li>
   <li><strong>Manual.</strong> Runs the full Pandolf calculation using an incline (0 to 15 percent) and a speed source you pick at setup: the belt speed (mph or km/h) you enter, or the live pace from a paired foot pod such as a Stryd. Belt speed suits steady-state walks you can read off the machine; a foot pod suits intervals, where a typed speed goes stale the moment the belt changes. If the pod isn't reading, the app quietly uses your entered belt speed, so a pod that drops out mid-walk costs you nothing. See <a href="faq.html#foot-pod">the foot pod FAQ</a>.</li>
 </ul>
-<p>In both indoor modes GPS is disabled and elevation stats are hidden. Treadmill Auto also hides the Effort page; Manual keeps that slot as a Pace page. Sessions save as Indoor Walk in Garmin Connect (Garmin's only indoor-walk subsport), and the pack-aware fields write the same way as outdoor sessions.</p>
+<p>In both indoor modes GPS is disabled and elevation stats are hidden. Treadmill Auto also hides the Effort page; Manual keeps that slot as a Pace page. You choose how the session lands in Garmin Connect with the <strong>Saves as</strong> setting: <strong>Walk</strong>, the default, records an Indoor Walk and keeps your watch's native pedometer distance, while <strong>Ruck</strong> records it as a proper Ruck, which reads better in your activity list but relies on a foot pod for distance since there's no GPS indoors. Your current choice shows on the start screen, and either way the pack-aware fields write the same as outdoor sessions.</p>
 
 <h2 id="mid">Mid-activity controls</h2>
 <p>Pack weight, terrain, incline, and belt speed can all change during a session without pausing the timer. Long-press UP on any live screen to open the Settings menu, pick the value, confirm. The Pandolf model picks up the new values on the next 1-second tick. Past calorie integration is not retroactively recomputed.</p>
@@ -125,8 +132,8 @@
 <p>Press the Action button on any summary page for a short menu: <strong>Calorie Details</strong>, <strong>Stats</strong>, and About. Calorie Details is a scrolling list of every input that fed the math: total burn, calories without pack, pack bonus in kcal and percent, your watch's native estimate, plus pack weight, terrain, body weight, and the speed and grade ranges used. Stats is the lifetime dashboard described below.</p>
 
 <h2 id="connect">In Garmin Connect</h2>
-<p>Outdoor sessions classify as <strong>Rucking</strong> (Garmin's own FIT subsport 124), on every supported watch. Activity names auto-populate as "Ruck 35 lb" or "Treadmill Ruck 16 kg" so the activity list reads at a glance — no manual rename.</p>
-<p>The activity's <strong>Stats → Connect IQ</strong> section shows seven load-aware fields:</p>
+<p>Outdoor sessions classify as <strong>Rucking</strong> (Garmin's own FIT subsport 124) on watches running Connect IQ 5.1 or later. A handful of watches still on Connect IQ 5.0 firmware can't record that subsport, so those sessions arrive as Hiking instead; the name and every load-aware field are identical either way. Activity names auto-populate as "Ruck 35 lb" or "Treadmill Ruck 16 kg" so the activity list reads at a glance — no manual rename.</p>
+<p>The activity's <strong>Stats → Connect IQ</strong> section shows ten load-aware fields:</p>
 <ul>
   <li>Pack Weight (lb or kg, in the unit you carried)</li>
   <li>Ruck Calories — your total, Pandolf + native fallback</li>
@@ -134,7 +141,10 @@
   <li>Pack Calorie Bonus — the kcal earned from carrying weight</li>
   <li>Burn Rate — average kcal per hour</li>
   <li>Terrain Surface — Road, Gravel, Trail, Sand, or Snow</li>
-  <li>Treadmill Mode and Incline (where applicable)</li>
+  <li>Ruck Distance (mi or km, in the unit you set)</li>
+  <li>Ruck Ascent — total climb for the session</li>
+  <li>Treadmill Mode (where applicable)</li>
+  <li>Treadmill Incline (where applicable)</li>
 </ul>
 <p>Per-second <strong>grade</strong> and <strong>metabolic rate</strong> write into the FIT file, so Garmin Connect charts them second by second alongside the native pace, heart-rate, and elevation graphs.</p>
 
@@ -151,6 +161,12 @@
   <li><strong>Best pace.</strong> Your fastest average pace at three pack-weight tiers: 10-19, 20-29, and 30+ lb (5-9, 10-14, and 15+ kg for metric), shown in your weight unit. Sessions need at least 1 km and a pack at or above the lowest tier to qualify; tiers without a qualifying ruck show "--".</li>
 </ul>
 <p>Updating from an older version? The streak and best paces are reconstructed from your History list at first launch, so the screen doesn't start from zero. Like History and the lifetime totals, Stats lives on the watch itself; see the <a href="faq.html#new-watch">FAQ</a> for what moves to a new device.</p>
+
+<h2 id="whats-new">What's New on the watch</h2>
+<p>After an update, a small green dot appears beside the Settings affordance on the start screen. It means the version you just picked up added something. Open Settings and What's New sits near the top, a short page describing what changed and where to find it. Opening the page is what clears the dot, so it stops once you've read it and never clears itself behind your back. A fresh install starts with no dot, since there's nothing to catch up on.</p>
+
+<h2 id="instinct">On Instinct 3 Solar and Instinct E</h2>
+<p>These watches give an app roughly 128 KB to work with, a fraction of what the rest of the fleet allows, so a few screens are left out to keep recording solid: lifetime Stats, History, Calorie Details, the What's New page, and the Settings entries for Pages and the Overview grid. Everything that records a ruck behaves as it does elsewhere, including all seven live pages, calories, laps, Auto Pause and the full post-save summary. The Overview page is present with its standard layout rather than a configurable one, treadmill Manual shows the usual Effort page in place of the Pace screen, and saved history holds 10 rucks instead of 30. The <a href="devices.html">devices page</a> has the full breakdown.</p>
 
 <h2 id="privacy">Privacy and data</h2>
 <p>Every setting, preset, and history entry stays on your watch. Meridian operates no servers, runs no analytics, has no companion phone app, and uses no third-party SDKs. The full <a href="privacy.html">privacy policy</a> covers what gets stored locally and how Garmin Connect handles the FIT file.</p>
