@@ -114,7 +114,7 @@ table.scen td b { color: var(--brand); }
     </div>
     <div>
       <label for="gr" id="grLabel">Grade (%) <span style="font-weight:400;text-transform:none">&nbsp;0 = flat, 8 = solid hill</span></label>
-      <input type="number" id="gr" value="0" min="-20" max="20" step="1">
+      <input type="number" id="gr" value="0" min="-20" max="25" step="1">
     </div>
     <div style="grid-column: 1 / -1;" id="terrainField">
       <label for="tr">Terrain</label>
@@ -246,7 +246,7 @@ M = 1.5W + 2(W+L)(L/W)&sup2; + &eta;(W+L)(1.5V&sup2; + 0.35VG)
     $("spLabel").textContent = m === "treadmill" ? "Belt speed" : "Speed";
     var gl = $("grLabel");
     if (m === "treadmill") {
-      gl.innerHTML = 'Incline (%) <span style="font-weight:400;text-transform:none">&nbsp;0 to 15, like the treadmill console</span>';
+      gl.innerHTML = 'Incline (%) <span style="font-weight:400;text-transform:none">&nbsp;0 to 25, like the treadmill console</span>';
       $("gr").min = 0; $("gr").max = 15;
       if (val("gr") < 0) { $("gr").value = 0; }
     } else {
