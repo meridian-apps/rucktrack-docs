@@ -247,7 +247,7 @@ M = 1.5W + 2(W+L)(L/W)&sup2; + &eta;(W+L)(1.5V&sup2; + 0.35VG)
     var gl = $("grLabel");
     if (m === "treadmill") {
       gl.innerHTML = 'Incline (%) <span style="font-weight:400;text-transform:none">&nbsp;0 to 25, like the treadmill console</span>';
-      $("gr").min = 0; $("gr").max = 15;
+      $("gr").min = 0; $("gr").max = 25;
       if (val("gr") < 0) { $("gr").value = 0; }
     } else {
       gl.innerHTML = 'Grade (%) <span style="font-weight:400;text-transform:none">&nbsp;0 = flat, 8 = solid hill</span>';
